@@ -2,11 +2,12 @@ p#notice = notice
 
 p
   strong Title:
-  = @admin_category.title
+  = simple_format @admin_category.title
 p
   strong Description:
-  = @admin_category.description
+  = simple_format @admin_category.description
 
+br
 = link_to 'Edit', edit_admin_category_path(@admin_category)
 '|
 = link_to 'Back', admin_categories_path

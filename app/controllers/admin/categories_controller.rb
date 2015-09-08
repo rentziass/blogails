@@ -25,7 +25,7 @@ class Admin::CategoriesController < ApplicationController
   # POST /admin/categories.json
   def create
     @admin_category = Admin::Category.new(admin_category_params)
-
+    
     respond_to do |format|
       if @admin_category.save
         format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
