@@ -28,6 +28,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 
 gem 'devise'
+
+########## AWS e Paperclip
+gem 'aws-sdk', '~> 1.37'
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
