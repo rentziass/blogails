@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong Title:
+  = simple_format @link.title
+p
+  strong Description:
+  = simple_format @link.description
+
+br
+= link_to 'Edit', edit_admin_link_path(@link)
+'|
+= link_to 'Back', admin_link_index_path

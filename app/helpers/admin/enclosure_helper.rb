@@ -1,0 +1,2 @@
+module Admin::EnclosureHelper
+end

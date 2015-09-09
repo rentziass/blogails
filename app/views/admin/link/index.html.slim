@@ -1,0 +1,23 @@
+h1 Listing admin_link
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @links.each do |link|
+      tr
+        td = link.title
+        td = link.description
+        td = link_to 'Show', admin_link_path(link)
+        td = link_to 'Edit', edit_admin_link_path(link)
+        td = button_to "Destroy", admin_link_path(link), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+/ 
+br
+
+= link_to 'New Link', new_admin_link_path

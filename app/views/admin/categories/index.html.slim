@@ -14,9 +14,9 @@ table
       tr
         td = category.title
         td = category.description
-        td = link_to 'Show', category
-        td = link_to 'Edit', edit_category_path(category)
-        td = button_to "Destroy", category, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+        td = link_to 'Show', admin_category_path(category)
+        td = link_to 'Edit', edit_admin_category_path(category)
+        td = button_to "Destroy", admin_category_path(category), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
 / 
 br
 

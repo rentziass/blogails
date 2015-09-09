@@ -1,0 +1,23 @@
+h1 Listing admin_enclosures
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @enclosures.each do |enclosure|
+      tr
+        td = enclosure.title
+        td = enclosure.description
+        td = link_to 'Show', admin_enclosure_path(enclosure)
+        td = link_to 'Edit', edit_admin_enclosure_path(enclosure)
+        td = button_to "Destroy", admin_enclosure_path(enclosure), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+/ 
+br
+
+= link_to 'New Enclosure', new_admin_enclosure_path

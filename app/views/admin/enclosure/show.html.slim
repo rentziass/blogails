@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong Title:
+  = simple_format @enclosure.title
+p
+  strong Description:
+  = simple_format @enclosure.description
+
+br
+= link_to 'Edit', edit_admin_enclosure_path(@enclosure)
+'|
+= link_to 'Back',  admin_enclosure_index_path
