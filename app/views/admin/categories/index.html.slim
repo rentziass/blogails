@@ -16,8 +16,8 @@ table
         td = admin_category.description
         td = link_to 'Show', admin_category
         td = link_to 'Edit', edit_admin_category_path(admin_category)
-        td = link_to 'Destroy', admin_category, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+        td = button_to "Destroy", admin_category, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+/ 
 br
 
 = link_to 'New Category', new_admin_category_path
