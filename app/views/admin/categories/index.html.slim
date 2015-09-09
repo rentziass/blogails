@@ -10,13 +10,13 @@ table
       th
 
   tbody
-    - @admin_categories.each do |admin_category|
+    - @categories.each do |category|
       tr
-        td = admin_category.title
-        td = admin_category.description
-        td = link_to 'Show', admin_category
-        td = link_to 'Edit', edit_admin_category_path(admin_category)
-        td = button_to "Destroy", admin_category, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+        td = category.title
+        td = category.description
+        td = link_to 'Show', category
+        td = link_to 'Edit', edit_category_path(category)
+        td = button_to "Destroy", category, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
 / 
 br
 

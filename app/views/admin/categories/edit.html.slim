@@ -1,7 +1,22 @@
 h1 Editing admin_category
 
-== render 'form'
+= form_for @category, url: admin_category_path(@category) do |f|
+  - if @category.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@category.errors.count, "error")} prohibited this admin_category from being saved:"
+      ul
+        - @category.errors.full_messages.each do |message|
+          li = message
 
-= link_to 'Show', @admin_category
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit
+
+
+= link_to 'Show', admin_category_path(@category)
 '|
 = link_to 'Back', admin_categories_path

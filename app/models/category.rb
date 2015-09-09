@@ -1,4 +1,4 @@
-class Admin::Category < ActiveRecord::Base
+class Category < ActiveRecord::Base
   validates_presence_of :title, :description
 
 #   has_attached_file :image, styles: {
