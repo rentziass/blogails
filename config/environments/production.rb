@@ -1,6 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => ENV['BLOGAILS_S3_BUCKET_NAME'],
+        :access_key_id => ENV['BLOGAILS_AWS_ACCESS_KEY'],
+        :secret_access_key => ENV['BLOGAILS_AWS_SECRET_ACCESS_KEY']
+      }
+    }
+
+    AWS.config(:http_open_timeout => 120, :http_read_timeout => 120, :region => 'eu-west-1')
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
