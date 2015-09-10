@@ -1,4 +1,4 @@
-class Admin::LinkController < ApplicationController
+class Admin::LinksController < ApplicationController
     before_action :set_admin_link, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -21,7 +21,7 @@ class Admin::LinkController < ApplicationController
     respond_to do |format|
       if @link.save
         format.html { redirect_to admin_link_path(@link), notice: 'Link was successfully created.' }
-        format.json { render :show, status: :created, location: @enclosure }
+        format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class Admin::LinkController < ApplicationController
     if @link
       @link.destroy
       respond_to do |format|
-        format.html { redirect_to  admin_link_index_url, notice: 'Link was successfully destroyed.' }
+        format.html { redirect_to  admin_links_url, notice: 'Link was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

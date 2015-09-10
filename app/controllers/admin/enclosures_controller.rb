@@ -1,4 +1,4 @@
-class Admin::EnclosureController < ApplicationController
+class Admin::EnclosuresController < ApplicationController
   before_action :set_admin_enclosure, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -45,7 +45,7 @@ class Admin::EnclosureController < ApplicationController
     if @enclosure
       @enclosure.destroy
       respond_to do |format|
-        format.html { redirect_to  admin_enclosure_index_url, notice: 'Enclosure was successfully destroyed.' }
+        format.html { redirect_to admin_enclosures_url, notice: 'Enclosure was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

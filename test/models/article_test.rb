@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::EnclosureControllerTest < ActionController::TestCase
+class ArticleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

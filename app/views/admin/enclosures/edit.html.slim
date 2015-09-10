@@ -5,7 +5,7 @@ h1 Editing admin_enclosure
     #error_explanation
       h2 = "#{pluralize(@enclosure.errors.count, "error")} prohibited this admin_enclosure from being saved:"
       ul
-        - @category.errors.full_messages.each do |message|
+        - @enclosure.errors.full_messages.each do |message|
           li = message
 
   .field
@@ -19,4 +19,4 @@ h1 Editing admin_enclosure
 
 = link_to 'Show', admin_enclosure_path(@enclosure)
 '|
-= link_to 'Back',  admin_enclosure_index_path
+= link_to 'Back', admin_enclosures_path

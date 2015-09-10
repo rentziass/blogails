@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Title:
+  = simple_format @article.title
+p
+  strong Text:
+  = simple_format @article.text
+  
+p
+  strong Evidence:
+  = simple_format @article.evidence
+  
+p
+  strong Visible:
+  = simple_format @article.visible
+
+br
+= link_to 'Edit', edit_admin_article_path(@article)
+'|
+= link_to 'Back', admin_articles_path
