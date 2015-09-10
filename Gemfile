@@ -29,6 +29,8 @@ gem 'puma'
 
 gem 'devise'
 
+gem 'friendly_id', '~> 5.1.0'
+
 ########## AWS e Paperclip
 gem 'aws-sdk', '~> 1.37'
 gem 'paperclip'
