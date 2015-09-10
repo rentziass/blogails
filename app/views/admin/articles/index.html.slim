@@ -5,21 +5,19 @@ table
     tr
       th Title
       th Text
-      th In_evidence
-      th Visible
+      th Date
+      th 
       th
 
   tbody
     - @articles.each do |article|
-      tr
+      tr 
         td = article.title
         td = article.text
-        td = article.evidence
-        td = article.visible
+        td = article.date.strftime("%d-%m-%Y | %H:%M")
         td = link_to 'Show', admin_article_path(article)
         td = link_to 'Edit', edit_admin_article_path(article)
         td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-/ 
 br
 
 = link_to 'New Article', new_admin_article_path

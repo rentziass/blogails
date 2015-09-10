@@ -20,6 +20,12 @@ h1 Editing admin_article
   .field
     = f.label :visible
     = f.check_box :visible
+  .field
+    = f.label :commentable
+    = f.check_box :commentable
+  .field
+    = f.label :date
+    = f.datetime_select :date
   .actions = f.submit
 
 

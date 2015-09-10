@@ -9,11 +9,19 @@ p
   
 p
   strong Evidence:
-  = simple_format @article.evidence
+  = simple_format "true" if @article.evidence == true
   
 p
   strong Visible:
-  = simple_format @article.visible
+  = simple_format "true" if @article.visible == true
+  
+p
+  strong Commentable:
+  = simple_format "true" if @article.commentable == true
+  
+p
+  strong Date:
+  = simple_format @article.date.strftime("giorno: %d-%m-%Y | ora: %H:%M")
 
 br
 = link_to 'Edit', edit_admin_article_path(@article)

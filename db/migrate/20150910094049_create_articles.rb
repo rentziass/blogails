@@ -5,6 +5,8 @@ class CreateArticles < ActiveRecord::Migration
       t.text :text
       t.boolean :evidence
       t.boolean :visible
+      t.datetime :date
+      t.boolean :commentable
 
       t.timestamps null: false
     end
