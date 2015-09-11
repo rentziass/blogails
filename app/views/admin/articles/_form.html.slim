@@ -24,4 +24,7 @@
   .field
     = f.label :date
     = f.datetime_select :date
+  .field
+    = f.label :category_ids
+    = f.collection_check_boxes :article, :category_ids, Category.all, :id
   .actions = f.submit
