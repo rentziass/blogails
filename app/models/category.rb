@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  has_many :article_categories
+  has_many :articles, through: :article_categories
   validates_presence_of :title, :description
 
 #   has_attached_file :image, styles: {
