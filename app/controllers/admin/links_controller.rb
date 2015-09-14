@@ -58,7 +58,7 @@ class Admin::LinksController < ApplicationController
     end
 
     def link_params
-      params.require(:link).permit(:title, :description)
+      params.require(:link).permit(:title, :description, :link)
     end
 
 end

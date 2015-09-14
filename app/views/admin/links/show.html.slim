@@ -6,6 +6,9 @@ p
 p
   strong Description:
   = simple_format @link.description
+p
+  strong Link
+  = simple_format @link.link
 
 br
 = link_to 'Edit', edit_admin_link_path(@link)

@@ -7,6 +7,7 @@ class CreateArticles < ActiveRecord::Migration
       t.boolean :visible
       t.datetime :date
       t.boolean :commentable
+      t.string :tag
 
       t.timestamps null: false
     end

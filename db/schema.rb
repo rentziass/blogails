@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150914103638) do
     t.boolean  "visible"
     t.datetime "date"
     t.boolean  "commentable"
+    t.text     "tag"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150914103638) do
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "link"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

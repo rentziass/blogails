@@ -28,6 +28,10 @@ p
   - @article.categories.each do |category|
     = simple_format category.title
   end
+  
+p 
+  strong Tags:
+  = simple_format @article.tag
 
 br
 = link_to 'Edit', edit_admin_article_path(@article)

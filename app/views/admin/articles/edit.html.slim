@@ -24,6 +24,9 @@ h1 Editing admin_article
     = f.label :commentable
     = f.check_box :commentable
   .field
+    = f.label :tag
+    = f.text_field :tag
+  .field
     = f.label :date
     = f.datetime_select :date
   .field

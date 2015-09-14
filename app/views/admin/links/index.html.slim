@@ -5,7 +5,7 @@ table
     tr
       th Title
       th Description
-      th
+      th Link
       th
       th
 
@@ -14,6 +14,7 @@ table
       tr
         td = link.title
         td = link.description
+        td = link_to 'link', link.link
         td = link_to 'Show', admin_link_path(link)
         td = link_to 'Edit', edit_admin_link_path(link)
         td = button_to "Destroy", admin_link_path(link), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
