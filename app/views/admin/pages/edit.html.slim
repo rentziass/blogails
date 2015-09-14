@@ -1,0 +1,25 @@
+h1 Editing admin_page
+
+= form_for @page, url: admin_page_path(@page) do |f|
+  - if @page.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@page.errors.count, "error")} prohibited this admin_page from being saved:"
+      ul
+        - @page.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :text
+    = f.text_area :text
+  .field
+    = f.label :visible
+    = f.check_box :visible
+  .actions = f.submit
+
+
+= link_to 'Show', admin_page_path(@page)
+'|
+= link_to 'Back',  admin_pages_path

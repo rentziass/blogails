@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = simple_format @page.title
+p
+  strong Description:
+  = simple_format @page.text
+p
+  strong Visible:
+  = simple_format "true" if @page.visible == true
+br
+= link_to 'Edit', edit_admin_page_path(@page)
+'|
+= link_to 'Back', admin_pages_path

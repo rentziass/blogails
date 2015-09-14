@@ -25,6 +25,9 @@
     = f.label :date
     = f.datetime_select :date
   .field
-    = f.label :category_ids
-    = f.collection_check_boxes :article, :category_ids, Category.all, :id
+    = hidden_field_tag "article[category_ids][]", nil
+    - Category.all.each do |category|
+        = check_box_tag "article[category_ids][]", category.id, @article.category_ids.include?(category.id), id: dom_id(category)
+        = label_tag dom_id(category), category.title
+    end
   .actions = f.submit

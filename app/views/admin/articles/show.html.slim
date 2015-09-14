@@ -22,6 +22,12 @@ p
 p
   strong Date:
   = simple_format @article.date.strftime("giorno: %d-%m-%Y | ora: %H:%M")
+  
+p
+  strong Categories:
+  - @article.categories.each do |category|
+    = simple_format category.title
+  end
 
 br
 = link_to 'Edit', edit_admin_article_path(@article)

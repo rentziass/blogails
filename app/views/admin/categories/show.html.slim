@@ -6,6 +6,11 @@ p
 p
   strong Description:
   = simple_format @category.description
+p
+  strong Articles:
+  - @category.articles.each do |article|
+    = simple_format article.title
+  end
 
 br
 = link_to 'Edit', edit_admin_category_path(@category)

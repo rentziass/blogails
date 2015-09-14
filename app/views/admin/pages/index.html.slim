@@ -1,0 +1,35 @@
+h1 Listing admin_link
+
+table
+  thead
+    tr
+      th Title
+      th Text
+      th
+      th
+      th
+
+  tbody
+    - @pages.each do |page|
+      tr
+        td = page.title
+        td = page.text
+        td = link_to 'Show', admin_page_path(page)
+        td = link_to 'Edit', edit_admin_page_path(page)
+        td = button_to "Destroy", admin_page_path(page), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+/ 
+br
+
+= link_to 'New Page', new_admin_page_path
+br
+br
+= link_to 'Home', admin_root_path
+br
+br
+= link_to 'Articoli', admin_articles_path
+br
+=link_to 'Allegati', admin_enclosures_path
+br
+= link_to 'Categorie', admin_categories_path
+br
+= link_to 'Link', admin_links_path

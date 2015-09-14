@@ -6,7 +6,7 @@ table
       th Title
       th Text
       th Date
-      th 
+      th Categories
       th
 
   tbody
@@ -15,6 +15,9 @@ table
         td = article.title
         td = article.text
         td = article.date.strftime("%d-%m-%Y | %H:%M")
+        - article.categories.each do |category|
+          td = category.title
+        end
         td = link_to 'Show', admin_article_path(article)
         td = link_to 'Edit', edit_admin_article_path(article)
         td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
