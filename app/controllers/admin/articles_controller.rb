@@ -17,7 +17,7 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
+    
     respond_to do |format|
       if @article.save
         format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully created.' }

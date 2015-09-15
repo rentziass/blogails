@@ -13,7 +13,7 @@ h1 Editing admin_article
     = f.text_field :title
   .field
     = f.label :text
-    = f.text_area :text
+    = f.text_area :text, :class => "tinymce", :rows => 20, :cols => 100
   .field
     = f.label :evidence
     = f.check_box :evidence
