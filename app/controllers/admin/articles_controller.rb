@@ -2,7 +2,7 @@ class Admin::ArticlesController < ApplicationController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order(:date)
   end
 
   def show
@@ -16,8 +16,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    
+    @article = current_user.articles.build(article_params)
+
     respond_to do |format|
       if @article.save
         format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully created.' }
@@ -57,7 +57,7 @@ class Admin::ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, { category_ids: [] })
+      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, { category_ids: [] })
     end
 
 end

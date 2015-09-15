@@ -1,6 +1,11 @@
 p#notice = notice
 
 p
+  strong User:
+  br
+  = @article.user_id
+
+p
   strong Title:
   = simple_format @article.title
 p

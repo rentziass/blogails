@@ -3,6 +3,7 @@ h1 Listing admin_article
 table
   thead
     tr
+      th User
       th Title
       th Text
       th Date
@@ -12,8 +13,9 @@ table
   tbody
     - @articles.each do |article|
       tr 
+        td = article.user_id
         td = article.title
-        td = article.text
+        td = article.text.html_safe
         td = article.date.strftime("%d-%m-%Y | %H:%M")
         - article.categories.each do |category|
           td = category.title
