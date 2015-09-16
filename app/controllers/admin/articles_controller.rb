@@ -53,11 +53,11 @@ class Admin::ArticlesController < ApplicationController
 
   private
     def set_admin_article
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     def article_params
-      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, { category_ids: [] })
+      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, :slug, { category_ids: [] })
     end
 
 end
