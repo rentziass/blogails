@@ -18,9 +18,10 @@ table
           td = article.title
         end
         td = link_to 'Show', admin_category_path(category)
-        td = link_to 'Edit', edit_admin_category_path(category)
+        - if current_user.email == 'rulligabri@tiscali.it'
+          td = link_to 'Edit', edit_admin_category_path(category)
+        end
         td = button_to "Destroy", admin_category_path(category), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-/ 
 br
 
 = link_to 'New Category', new_admin_category_path
