@@ -35,6 +35,9 @@ h1 Editing admin_article
         = check_box_tag "article[category_ids][]", category.id, @article.category_ids.include?(category.id), id: dom_id(category)
         = label_tag dom_id(category), category.title
     end
+  .field
+    = f.label :use_slug
+    = f.check_box :use_slug
   .actions = f.submit
 
 
