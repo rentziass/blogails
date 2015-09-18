@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :links
     resources :articles
     resources :pages
+    resources :user_lists
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

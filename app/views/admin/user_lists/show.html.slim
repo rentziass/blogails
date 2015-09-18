@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Email:
+  br
+  = @user_list.email
+
+p
+  strong Role:
+  br
+  = @user_list.role
+  
+br
+
+= link_to 'Back', admin_articles_path

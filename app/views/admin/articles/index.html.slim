@@ -26,8 +26,10 @@ table
         end
         td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
 br
-= current_user.email
-br
+p
+  strong You are logged as:
+  br
+  = current_user.email
 
 = link_to 'New Article', new_admin_article_path
 br
