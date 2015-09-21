@@ -16,7 +16,7 @@ class Admin::LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
 
     respond_to do |format|
       if @link.save
@@ -58,7 +58,7 @@ class Admin::LinksController < ApplicationController
     end
 
     def link_params
-      params.require(:link).permit(:title, :description, :link)
+      params.require(:link).permit(:title, :description, :link, :user_id, :current_user)
     end
 
 end

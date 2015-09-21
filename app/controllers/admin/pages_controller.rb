@@ -15,7 +15,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def create
-    @page = Page.new(page_params)
+    @page = current_user.pages.build(page_params)
     respond_to do |format|
       if @page.save
         format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully created.' }
@@ -56,7 +56,7 @@ class Admin::PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:title, :text, :visible)
+      params.require(:page).permit(:title, :text, :visible, :user_id, :current_user)
     end
 
 end

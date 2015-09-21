@@ -16,7 +16,7 @@ class Admin::EnclosuresController < ApplicationController
   end
 
   def create
-    @enclosure = Enclosure.new(enclosure_params)
+    @enclosure = current_user.enclosures.build(enclosure_params)
 
     respond_to do |format|
       if @enclosure.save
@@ -58,6 +58,6 @@ class Admin::EnclosuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enclosure_params
-      params.require(:enclosure).permit(:title, :description)
+      params.require(:enclosure).permit(:title, :description, :user_id, :current_user)
     end
 end

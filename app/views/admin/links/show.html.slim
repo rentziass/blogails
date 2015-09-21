@@ -2,15 +2,20 @@ p#notice = notice
 
 p
   strong Title:
-  = simple_format @link.title
+  br
+  = @link.title
 p
   strong Description:
-  = simple_format @link.description
+  br
+  = @link.description
 p
   strong Link
-  = simple_format @link.link
+  br
+  = link_to @link.link, @link.link
 
 br
-= link_to 'Edit', edit_admin_link_path(@link)
-'|
+- if current_user.role.name == "admin" || @link.user_id == current_user.id
+  = link_to 'Edit', edit_admin_link_path(@link)
+  '|
+end
 = link_to 'Back', admin_links_path

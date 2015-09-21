@@ -21,10 +21,12 @@ table
           td = category.title
         end
         td = link_to 'Show', admin_article_path(article)
-        - if article.user_id == current_user.id
+        - if current_user.role.name == "admin" || article.user_id == current_user.id
           td = link_to 'Edit', edit_admin_article_path(article)
         end
-        td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+        - if current_user.role.name == "admin" || article.user_id == current_user.id
+          td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+        end
 br
 p
   strong You are logged as:
@@ -44,3 +46,5 @@ br
 = link_to 'Allegati', admin_enclosures_path
 br
 = link_to 'Pagine', admin_pages_path
+br
+= link_to 'Utenti', admin_user_lists_path
