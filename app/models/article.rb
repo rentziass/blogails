@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
 
   has_many :article_categories
   has_many :categories, through: :article_categories, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
 
   friendly_id :title, use: [:slugged, :finders]
