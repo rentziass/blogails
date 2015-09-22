@@ -1,0 +1,22 @@
+h1 Editing admin_user
+
+= form_for @user_list, url: admin_user_list_path(@user_list) do |f|
+  - if @user_list.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user_list.errors.count, "error")} prohibited this admin_user_list from being saved:"
+      ul
+        - @user_list.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :email
+    = f.email_field :email
+  .field
+    = f.label :name
+    = f.select :name, Role.pluck(:name, :id)
+  .actions = f.submit
+
+
+= link_to 'Show', admin_user_list_path(@user_list)
+'|
+= link_to 'Back',  admin_user_lists_path

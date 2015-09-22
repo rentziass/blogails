@@ -1,5 +1,5 @@
 class Admin::UserListsController < ApplicationController
-  before_action :set_admin_user_list, only: [:show]
+  before_action :set_admin_user_list, only: [:show, :edit, :update]
 
   def index
     @user_lists = User.all
@@ -14,7 +14,7 @@ class Admin::UserListsController < ApplicationController
   def update
     respond_to do |format|
       if @user_list.update(user_list_params)
-        format.html { redirect_to admin_user_list_path(@user_list), notice: 'Page was successfully updated.' }
+        format.html { redirect_to admin_user_list_path(@user_list), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_list }
       else
         format.html { render :edit }
@@ -29,7 +29,7 @@ class Admin::UserListsController < ApplicationController
     end
 
     def user_list_params
-      params.require(:user).permit(:email, :role_id, :name)
+      params.require(:user).permit(:email, :password, :role_id, :name)
     end
 
 
