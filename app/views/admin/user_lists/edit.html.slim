@@ -12,8 +12,8 @@ h1 Editing admin_user
     = f.label :email
     = f.email_field :email
   .field
-    = f.label :name
-    = f.select :name, Role.pluck(:name, :id)
+    = f.label :role_id
+    = f.select :role_id, Role.pluck(:name, :id)
   .actions = f.submit
 
 

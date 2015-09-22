@@ -2,7 +2,7 @@ class Admin::UserListsController < ApplicationController
   before_action :set_admin_user_list, only: [:show, :edit, :update]
 
   def index
-    @user_lists = User.all
+    @user_lists = User.all.order(:role_id)
   end
 
   def show
