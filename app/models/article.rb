@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   extend FriendlyId
 
   has_many :article_categories
-  has_many :categories, through: :article_categories, dependent: :destroy
+  has_many :categories, through: :article_categories
   has_many :comments, dependent: :destroy
   belongs_to :user
 

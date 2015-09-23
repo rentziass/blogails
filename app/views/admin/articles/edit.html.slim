@@ -30,6 +30,7 @@ h1 Editing admin_article
     = f.label :date
     = f.datetime_select :date
   .field
+    = f.label :category
     = hidden_field_tag "article[category_ids][]", nil
     - Category.all.each do |category|
         = check_box_tag "article[category_ids][]", category.id, @article.category_ids.include?(category.id), id: dom_id(category)

@@ -19,6 +19,9 @@ table
         - if current_user.role.name == "admin"
           td = link_to 'Edit', edit_admin_user_list_path(user)
         end
+        - if current_user.role.name == "admin"
+          td = button_to "Destroy", admin_user_list_path(user), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+        end
 br
 p
   strong You are logged as:
