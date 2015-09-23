@@ -1,0 +1,21 @@
+= form_for @option, url: admin_options_path do |f|
+  - if @option.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@option.errors.count, "error")} prohibited this admin_option from being saved:"
+      ul
+        - @option.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :subtitle
+    = f.text_field :subtitle
+  .field
+    = f.label :footer
+    = f.text_area :footer
+  .field
+    = f.label :analitics
+    = f.text_area :analitics
+  .actions = f.submit

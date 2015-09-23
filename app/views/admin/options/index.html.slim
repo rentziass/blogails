@@ -1,0 +1,41 @@
+h1 Listing admin_option
+
+table
+  thead
+    tr
+      th Title
+      th SubTitle
+      th Footer
+      th Analitics
+      th
+
+  tbody
+    - @options.each do |option|
+      tr
+        td = option.title
+        td = option.subtitle
+        td = option.footer
+        td = option.analitics
+br
+p
+  strong You are logged as:
+  br
+  = current_user.email
+  
+= link_to 'Options', new_admin_option_path
+br
+br
+= link_to 'Home', admin_root_path
+br
+br
+= link_to 'Articoli', admin_articles_path
+br
+=link_to 'Allegati', admin_enclosures_path
+br
+= link_to 'Categorie', admin_categories_path
+br
+= link_to 'Utenti', admin_user_lists_path
+br
+= link_to 'Link', admin_links_path
+br
+= link_to 'Opzioni', admin_options_path
