@@ -2,29 +2,34 @@ h1 Listing admin_option
 
 table
   thead
+  - @options.each do |option|
     tr
       th Title
+      td = option.title
+    tr
       th SubTitle
+      td = option.subtitle
+    tr
       th Footer
+      td = option.footer
+    tr
+      th Copyright
+      td = option.copyright
+    tr
       th Analitics
-      th
-
+      td = option.analitics
+    tr
+      td = link_to 'Edit', edit_admin_option_path(option)
+      
+table
   tbody
-    - @options.each do |option|
-      tr
-        td = option.title
-        td = option.subtitle
-        td = option.footer
-        td = option.analitics
+    
 br
 p
   strong You are logged as:
   br
   = current_user.email
-  
-= link_to 'Options', new_admin_option_path
-br
-br
+
 = link_to 'Home', admin_root_path
 br
 br

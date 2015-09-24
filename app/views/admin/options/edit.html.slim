@@ -1,4 +1,4 @@
-= form_for @option, url: admin_options_path do |f|
+= form_for @option, url: admin_option_path do |f|
   - if @option.errors.any?
     #error_explanation
       h2 = "#{pluralize(@option.errors.count, "error")} prohibited this admin_option from being saved:"
@@ -18,4 +18,9 @@
   .field
     = f.label :analitics
     = f.text_area :analitics
+  .field
+    = f.label :copyright
+    = f.text_field :copyright
   .actions = f.submit
+
+= link_to 'Back',  admin_options_path

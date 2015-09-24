@@ -1,0 +1,23 @@
+p#notice = notice
+
+p
+  strong Title:
+  br
+  = @option.title
+p
+  strong Description:
+  br
+  = @option.subtitle
+p
+  strong Link
+  br
+  = @option.footer
+  
+p
+  strong Analitics:
+  br
+  = @option.analitics
+
+br
+
+= link_to 'Back', admin_options_path

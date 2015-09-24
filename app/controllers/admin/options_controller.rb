@@ -1,21 +1,24 @@
 class Admin::OptionsController < ApplicationController
+  before_action :set_admin_option, only: [:show, :edit, :update]
 
   def index
     @options = Option.all
   end
 
-  def new
-    @option = Option.new
+  def show
+
   end
 
-  def create
-    @option = Option.new(option_params)
+  def edit
+  end
+
+  def update
     respond_to do |format|
-      if @option.save
-        format.html { redirect_to admin_options_path(@option), notice: 'Option was successfully created.' }
-        format.json { render :show, status: :created, location: @option }
+      if @option.update(option_params)
+        format.html { redirect_to admin_options_path(@option), notice: 'Option was successfully updated.' }
+        format.json { render :show, status: :ok, location: @option }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @option.errors, status: :unprocessable_entity }
       end
     end

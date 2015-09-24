@@ -52,7 +52,7 @@ class Admin::PagesController < ApplicationController
 
   private
     def set_admin_page
-      @page = Page.find(params[:id])
+      @page = Page.friendly.find(params[:id])
     end
 
     def page_params
