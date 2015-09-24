@@ -30,7 +30,7 @@ class Admin::OptionsController < ApplicationController
     end
 
     def option_params
-      params.require(:option).permit(:title, :subtitle, :footer, :analitics)
+      params.require(:option).permit(:title, :subtitle, :footer, :analitics, :copyright)
     end
 
 end

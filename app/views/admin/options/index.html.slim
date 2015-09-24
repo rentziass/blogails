@@ -19,7 +19,9 @@ table
       th Analitics
       td = option.analitics
     tr
-      td = link_to 'Edit', edit_admin_option_path(option)
+      - if current_user.role.name == 'admin'
+        td = link_to 'Edit', edit_admin_option_path(option)
+      end
       
 table
   tbody

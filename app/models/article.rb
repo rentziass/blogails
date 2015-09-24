@@ -3,10 +3,14 @@ class Article < ActiveRecord::Base
 
   has_many :article_categories
   has_many :categories, through: :article_categories
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   belongs_to :user
 
   friendly_id :title, use: [:slugged, :finders]
+
+  def self.available
+    where("date <= ?", Time.now)
+  end
 
 ########### Slug change on update ################
   attr_writer :use_slug

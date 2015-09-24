@@ -1,2 +1,36 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+h1 HOME
+.titolo_blog
+  h2
+    - @options.each do |option|
+      = option.title
+p
+  strong ###############################################################
+.articoli
+  c Elenco Articoli:
+  br
+  p
+    - @articles.each do |article|
+      = article.title
+      = article.text.html_safe
+      = article.date.strftime("%d-%m-%Y | %H:%M")
+      br
+      - article.categories.each do |category|
+        = category.title
+        br
+      end
+      br -----------------------
+.categorie
+  c Elenco Categorie:
+  br
+  p
+    - @categories.each do |category|
+      = category.title
+      br
+  s -----------------------
+.pagine
+  c Elenco Pagine:
+  br
+  p
+    - @pages.each do |page|
+      = page.title
+      br
