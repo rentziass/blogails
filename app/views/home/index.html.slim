@@ -1,10 +1,12 @@
 h1 HOME
+/ TITOLO DEL BLOG
 .titolo_blog
   h2
     - @options.each do |option|
       = option.title
 p
   strong ###############################################################
+/ ELENCO ARTICOLI
 .articoli
   strong Elenco Articoli:
   br
@@ -17,23 +19,33 @@ p
       - article.categories.each do |category|
         = category.title
         br
-      end
       br -----------------------
   = paginate @articles
   br
   br
-.categorie
-  strong Elenco Categorie:
-  br
-  p
-    - @categories.each do |category|
-      = category.title
-      br
-  s -----------------------
-.pagine
-  strong Elenco Pagine:
-  br
-  p
-    - @pages.each do |page|
-      = page.title
-      br
+  / MENU A DESTRA
+.menu_destra 
+  .categorie
+    strong Elenco Categorie:
+    br
+    p
+      - @categories.each do |category|
+        = category.title
+        br
+    s -----------------------
+  .pagine
+    strong Elenco Pagine:
+    br
+    p
+      - @pages.each do |page|
+        = page.title
+        br
+      br ################
+        
+  .articoli_menu_destra
+    strong Ultimi 4 articoli:
+    br
+    p
+      - @article.each do |article|
+        = article.title
+        br

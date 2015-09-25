@@ -9,6 +9,12 @@ h1 Editing admin_user
           li = message
 
   .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
     = f.label :email
     = f.email_field :email
   .field

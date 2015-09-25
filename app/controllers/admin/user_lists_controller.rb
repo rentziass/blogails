@@ -40,7 +40,7 @@ class Admin::UserListsController < ApplicationController
     end
 
     def user_list_params
-      params.require(:user).permit(:email, :password, :role_id, :name)
+      params.require(:user).permit(:email, :password, :role_id, :name, :first_name, :last_name)
     end
 
 

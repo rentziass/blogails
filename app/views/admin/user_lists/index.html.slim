@@ -3,16 +3,18 @@ h1 Listing admin_user_list
 table
   thead
     tr
+      th Name
+      th Surname
       th Email
       th Role
-      th 
-      th 
       th 
       th
 
   tbody
     - @user_lists.each do |user|
-      tr 
+      tr
+        td = user.first_name
+        td = user.last_name
         td = user.email
         td = user.role.name
         td = link_to 'Show', admin_user_list_path(user)
