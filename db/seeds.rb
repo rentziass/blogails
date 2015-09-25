@@ -15,5 +15,6 @@ Option.create(
   subtitle: "Il mio blog",
   footer: "Koodit.srl",
   copyright: "E' di Koodit.srl!!!",
-  analitics: "non lo so"
+  analitics: "non lo so",
+  number_per_page: 10
 )

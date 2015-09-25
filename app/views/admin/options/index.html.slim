@@ -19,6 +19,9 @@ table
       th Analitics
       td = option.analitics
     tr
+      th Number per page
+      td = option.number_per_page
+    tr
       - if current_user.role.name == 'admin'
         td = link_to 'Edit', edit_admin_option_path(option)
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925104921) do
+ActiveRecord::Schema.define(version: 20150925130635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,9 +93,10 @@ ActiveRecord::Schema.define(version: 20150925104921) do
     t.string   "subtitle"
     t.text     "footer"
     t.text     "analitics"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "copyright"
+    t.integer  "number_per_page"
   end
 
   create_table "pages", force: :cascade do |t|
