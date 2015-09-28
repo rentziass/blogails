@@ -3,8 +3,10 @@ class Article < ActiveRecord::Base
 
   has_many :article_categories
   has_many :categories, through: :article_categories
-  # has_many :comments, dependent: :destroy
   belongs_to :user
+
+  # COMMENTI
+  acts_as_commontable
 
   friendly_id :title, use: [:slugged, :finders]
 

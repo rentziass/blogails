@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :pages
   belongs_to :role
 
+  # COMMENTI
+  acts_as_commontator
+
   before_create :set_default_role
 
   private

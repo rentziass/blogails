@@ -12,6 +12,9 @@ h1 Editing admin_article
     = f.label :title
     = f.text_field :title
   .field
+    = f.label :summary
+    = f.text_area :summary
+  .field
     = f.label :text
     = f.text_area :text, :class => "tinymce", :rows => 20, :cols => 100
   .field

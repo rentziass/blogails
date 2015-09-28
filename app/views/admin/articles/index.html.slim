@@ -5,6 +5,7 @@ table
     tr
       th User
       th Title
+      th Summary
       th Text
       th Date
       th Categories
@@ -15,6 +16,7 @@ table
       tr 
         td = article.user_id
         td = article.title
+        td = article.summary
         td = article.text.html_safe
         td = article.date.strftime("%d-%m-%Y | %H:%M")
         - article.categories.each do |category|

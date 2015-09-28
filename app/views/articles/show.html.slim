@@ -1,6 +1,7 @@
 h1 = @article.title
 .text
   p
+    = @article.summary
     = @article.text.html_safe
     - @article.categories.each do |category|
       = link_to  category.title, category_path(category)

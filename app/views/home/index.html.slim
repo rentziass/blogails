@@ -13,11 +13,19 @@ p
   p
     - @articles.each do |article|
       = link_to article.title, article_path(article)
-      = article.text.html_safe
+      br
+      br
+      - if article.summary.blank?
+        = article.text.html_safe
+      else
+        = article.summary
+        br
+      end
       = article.date.strftime("%d-%m-%Y | %H:%M")
       br
+      br
       - article.categories.each do |category|
-        = category.title
+        = link_to category.title, category_path(category)
         br
       br ---------------------------------------------------------------------
   = paginate @articles
@@ -53,5 +61,5 @@ p
     strong Link:
     p
       - @links.each do |link|
-        = link.link
+        = link_to link.title, link.link
         br ---------------------------------------------------------------------
