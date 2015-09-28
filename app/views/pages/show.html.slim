@@ -1,0 +1,6 @@
+h1 = @page.title
+.text
+  p
+    = @page.text.html_safe
+
+= link_to 'Home', home_index_path

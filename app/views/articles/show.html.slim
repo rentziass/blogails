@@ -1,0 +1,9 @@
+h1 = @article.title
+.text
+  p
+    = @article.text.html_safe
+    - @article.categories.each do |category|
+      = link_to  category.title, category_path(category)
+      br
+
+= link_to 'Home', home_index_path

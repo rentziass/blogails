@@ -1,0 +1,12 @@
+h1 = @category.title
+.text
+  p
+    = @category.description
+    br
+    br
+    - @category.articles.each do |article|
+      = link_to article.title, article_path(article)
+      br
+    end
+
+= link_to 'Home', home_index_path
