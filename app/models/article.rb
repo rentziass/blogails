@@ -14,6 +14,7 @@ class Article < ActiveRecord::Base
     where("date <= ?", Time.now)
   end
 
+
 ########### Slug change on update ################
   attr_writer :use_slug
 
