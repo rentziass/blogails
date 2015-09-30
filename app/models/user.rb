@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   has_many :pages
   belongs_to :role
 
-  # COMMENTI
-  acts_as_commontator
-
+############ RUOLO DI DEFAULT PER I NUOVI UTENTI ##########
   before_create :set_default_role
 
   private

@@ -1,0 +1,18 @@
+= form_for @shit do |f|
+  - if @shit.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@shit.errors.count, "error")} prohibited this shit from being saved:"
+      ul
+        - @shit.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :article_id
+    = f.number_field :article_id
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions = f.submit

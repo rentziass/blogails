@@ -3,17 +3,15 @@ class Article < ActiveRecord::Base
 
   has_many :article_categories
   has_many :categories, through: :article_categories
+  has_many :comments, dependent: :destroy
   belongs_to :user
-
-  # COMMENTI
-  acts_as_commontable
 
   friendly_id :title, use: [:slugged, :finders]
 
+########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
   def self.available
     where("date <= ?", Time.now)
   end
-
 
 ########### Slug change on update ################
   attr_writer :use_slug
