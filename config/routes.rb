@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :articles do
-    resources :comments
+    resources :comments, :only => [:create, :destroy]
   end
   resources :categories
 

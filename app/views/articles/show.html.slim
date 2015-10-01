@@ -13,6 +13,26 @@ h1 = @article.title
     br
     - @article.categories.each do |category|
       = link_to  category.title, category_path(category)
-      br  
+      br 
+    end 
+    
+h2 Comments
+/ = render :partial => @article.comments
+= @article.comments.each do |comment|
+  =comment.first_name
+  br
+  = comment.body
+  br
+  = button_to "Destroy", @comment, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+  br
+end
+  
+= form_for [@article, Comment.new] do |f| 
+  = f.label :body, "New comment:"
+  br
+  = f.text_area :body
+  br
+  = f.submit "Post comment" 
+end 
 
 = link_to 'Home', home_index_path

@@ -4,6 +4,7 @@ table
   thead
     tr
       th User
+      th Name
       th Title
       th Summary
       th Text
@@ -15,6 +16,7 @@ table
     - @articles.each do |article|
       tr 
         td = article.user_id
+        td = article.first_name
         td = article.title
         td = article.summary
         td = article.text.html_safe
