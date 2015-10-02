@@ -1,5 +1,5 @@
 class AddNameToArticle < ActiveRecord::Migration
   def change
-    add_column :articles, :first_name, :string
+    add_column :articles, :name, :string, index: true
   end
 end

@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
 
+  accepts_nested_attributes_for :comments, allow_destroy: true
   friendly_id :title, use: [:slugged, :finders]
 
 ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE

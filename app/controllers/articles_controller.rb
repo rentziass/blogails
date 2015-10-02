@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.friendly.find(params[:id])
+    @article = Article.find(params[:id])
     @comment = @article.comments.find(params[:id])
     if @comment
       @comment.destroy
@@ -14,10 +14,5 @@ class ArticlesController < ApplicationController
       end
     end
   end
-
-  private
-    def comment_params
-      params.require(:comment).permit(:body, :article_id)
-    end
 
 end

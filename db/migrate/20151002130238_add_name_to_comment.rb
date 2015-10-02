@@ -1,5 +1,5 @@
 class AddNameToComment < ActiveRecord::Migration
   def change
-    add_column :comments, :first_name, :string
+    add_column :comments, :user_name, :string, index: true
   end
 end
