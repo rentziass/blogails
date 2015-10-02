@@ -1,0 +1,9 @@
+= div_for comment do
+  = comment.user.first_name
+  f &nbsp
+  f Says:
+  br
+  = comment.body
+  = button_to "Destroy", @comment, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+  br
+end

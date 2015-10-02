@@ -1,4 +1,4 @@
-class Admin::EnclosuresController < ApplicationController
+class Admin::EnclosuresController < Admin::AdminController
   before_action :set_admin_enclosure, only: [:show, :edit, :update, :destroy]
 
   def index

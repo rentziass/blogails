@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :enclosures
   has_many :links
   has_many :pages
+  has_many :comments
   belongs_to :role
 
 ############ RUOLO DI DEFAULT PER I NUOVI UTENTI ##########

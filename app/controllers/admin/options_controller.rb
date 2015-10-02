@@ -1,4 +1,4 @@
-class Admin::OptionsController < ApplicationController
+class Admin::OptionsController < Admin::AdminController
   before_action :set_admin_option, only: [:show, :edit, :update]
 
   def index

@@ -1,4 +1,4 @@
-class Admin::LinksController < ApplicationController
+class Admin::LinksController < Admin::AdminController
     before_action :set_admin_link, only: [:show, :edit, :update, :destroy]
 
   def index

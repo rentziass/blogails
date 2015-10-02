@@ -4,6 +4,7 @@ table
   thead
     tr
       th User
+      th Name
       th Title
       th Summary
       th Text
@@ -15,6 +16,7 @@ table
     - @articles.each do |article|
       tr 
         td = article.user_id
+        td = article.user.first_name
         td = article.title
         td = article.summary
         td = article.text.html_safe
@@ -25,8 +27,6 @@ table
         td = link_to 'Show', admin_article_path(article)
         - if current_user.role.name == "admin" || article.user_id == current_user.id
           td = link_to 'Edit', edit_admin_article_path(article)
-        end
-        - if current_user.role.name == "admin" || article.user_id == current_user.id
           td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
         end
 br

@@ -4,7 +4,12 @@ p
   strong User:
   br
   = @article.user_id
-
+  
+p
+  strong Name:
+  br
+  = @article.user.first_name
+  
 p
   strong Title:
   = simple_format @article.title
