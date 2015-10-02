@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-	  <title> Blogails </title>
+	  <title> Blogails Admin </title>
 	  <%= stylesheet_link_tag    'application', media: 'all'%>
 	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
@@ -11,14 +11,15 @@
 	</head>
 
 	<body>
-		<div class="container">
-			<%= yield %>
-		</div>
+		<%= render 'layouts/admin/header' %>
 
-		<div id="user_nav">
-		    <% if user_signed_in? %>
-		        <%= link_to 'Log out', destroy_user_session_path %>
-		    <% end %>
+		<div class="row admin_panel">
+			<div class="col s2 blue-grey lighten-3 sidebar">
+				<%= render 'layouts/admin/sidebar' %>
+			</div>
+			<div class="col s10 content">
+				<%= yield %>
+			</div>
 		</div>
 
 		<%= tinymce %>

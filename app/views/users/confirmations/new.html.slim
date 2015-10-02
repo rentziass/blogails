@@ -1,0 +1,23 @@
+.row.auth_page
+  .col.s12.m6.offset-m3
+    .card
+      .card-content
+        h4.center-align.cyan-text Resend confirmation instructions
+
+        .row
+          .col.s12.m8.offset-m2
+
+            = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+              p
+                = devise_error_messages!
+
+              .input-field.email_field
+                = f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+                = f.label :email
+
+              .login_button_field
+                = f.button "Resend confirmation instructions", class:"btn waves-effect waves-light"
+          .divider
+
+        p.center-align.session_links
+          = render "users/shared/links"
