@@ -14,6 +14,15 @@ class Article < ActiveRecord::Base
     where("date <= ?", Time.now)
   end
 
+  def self.article_visible
+    where("visible = ?", true)
+  end
+
+  def self.display_evidence
+    where("evidence = ?", true)
+  end
+
+
 ########### Slug change on update ################
   attr_writer :use_slug
 

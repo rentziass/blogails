@@ -25,12 +25,14 @@ h2 Comments
 p
   = render :partial => @article.comments
   
-= form_for [@article, Comment.new] do |f|
-  = f.label :body, "New comment:"
-  br
-  = f.text_area :body
-  br
-  = f.submit "Post comment" 
-end 
+- if @article.commentable == true
+  = form_for [@article, Comment.new] do |f|
+    = f.label :body, "New comment:"
+    br
+    = f.text_area :body
+    br
+    = f.submit "Post comment" 
+  end 
+end
 
 = link_to 'Home', home_index_path
