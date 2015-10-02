@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+########## RUBY VERSION
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -22,9 +24,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 ######## EDITOR
 gem 'tinymce-rails'
 
@@ -41,16 +40,18 @@ gem 'paperclip'
 ####### Pagination #####
 gem 'kaminari'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development do
   gem 'rails-erd'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  ########## FRONTEND
+  ################# GUARD LIVERELOAD
+  gem "guard", ">= 2.2.2",       :require => false
+  gem "guard-livereload",        :require => false
+  gem "rack-livereload"
+  gem "rb-fsevent",              :require => false
+  ################# GUARD LIVERELOAD
 end
 
 group :development, :test do
@@ -65,3 +66,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+##### FRONTEND
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Materialize
+gem 'materialize-sass'

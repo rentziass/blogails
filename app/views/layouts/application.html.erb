@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> Blogails </title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+	<head>
+	  <title> Blogails </title>
+	  <%= stylesheet_link_tag    'application', media: 'all'%>
+	  <%= javascript_include_tag 'application' %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-<div id="user_nav">
-    <% if user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path %>
-    <% end %>
-</div>
+	<body>
+		<div class="container">
+			<%= yield %>
+		</div>
 
-<%= tinymce %>
+		<div id="user_nav">
+		    <% if user_signed_in? %>
+		        <%= link_to 'Log out', destroy_user_session_path %>
+		    <% end %>
+		</div>
 
-</body>
+		<%= tinymce %>
+
+	</body>
+	
 </html>
