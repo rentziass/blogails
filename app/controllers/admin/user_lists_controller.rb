@@ -1,4 +1,4 @@
-class Admin::UserListsController < ApplicationController
+class Admin::UserListsController < Admin::AdminController
   before_action :set_admin_user_list, only: [:show, :edit, :update, :destroy]
 
   def index
