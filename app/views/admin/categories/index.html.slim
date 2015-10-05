@@ -20,10 +20,7 @@ table
         td = link_to 'Show', admin_category_path(category)
         - if current_user.role.name == "admin"
           td = link_to 'Edit', edit_admin_category_path(category)
-        end
-        - if current_user.role.name == "admin"
           td = button_to "Destroy", admin_category_path(category), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-        end
 br
 p
   strong You are logged as:
