@@ -13,11 +13,11 @@ class Article < ActiveRecord::Base
   def self.available
     where("date <= ?", Time.now)
   end
-
+########### ARTICOLI VISIBILI SOLO SE L'ATTRIBUTO "Visible" E' VERO
   def self.article_visible
     where("visible = ?", true)
   end
-
+########### ARTICOLI VISIBILI NELL'ELENCO DEL MENU' SOLO SE L'ATTRIBUTO "Evidence" E' VERO
   def self.display_evidence
     where("evidence = ?", true)
   end
