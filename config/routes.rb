@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resources :user_lists
     resources :options
   end
-
+  
+  post '/tinymce_assets' => 'article_images#create'
   resources :pages
   resources :articles do
     resources :comments, :only => [:create, :destroy]
