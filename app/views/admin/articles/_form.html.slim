@@ -1,4 +1,4 @@
-= form_for @article, url: admin_articles_path do |f|
+= form_for @article, url: admin_articles_path, :html => { :multipart => true } do |f|
   - if @article.errors.any?
     #error_explanation
       h2 = "#{pluralize(@article.errors.count, "error")} prohibited this admin_article from being saved:"
@@ -31,11 +31,6 @@
     = f.label :date
     = f.datetime_select :date
   .field
-    = f.label :article_image
-    = f.fields_for 'article_images_attributes[]', @article.article_images do |builder|
-      = builder.file_field :image, multiple: true
-    
-  .field
     = f.label :category
     = hidden_field_tag "article[category_ids][]", nil
     - Category.all.each do |category|
@@ -45,4 +40,5 @@
   .field
     = f.label :use_slug
     = f.check_box :use_slug
+  
   .actions = f.submit

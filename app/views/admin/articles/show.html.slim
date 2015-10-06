@@ -47,6 +47,9 @@ p
 p 
   strong Tags:
   = simple_format @article.tag
+  
+p
+  strong Image:
 
 br
 - if current_user.role.name == "admin" || @article.user_id == current_user.id
