@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005170429) do
+ActiveRecord::Schema.define(version: 20151006093650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20151005170429) do
   add_index "article_categories", ["article_id"], name: "index_article_categories_on_article_id", using: :btree
   add_index "article_categories", ["category_id"], name: "index_article_categories_on_category_id", using: :btree
 
+  create_table "article_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
@@ -34,12 +39,16 @@ ActiveRecord::Schema.define(version: 20151005170429) do
     t.datetime "date"
     t.boolean  "commentable"
     t.string   "tag"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
     t.string   "slug"
     t.text     "summary"
     t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -114,11 +123,15 @@ ActiveRecord::Schema.define(version: 20151005170429) do
     t.string   "title"
     t.text     "text"
     t.boolean  "visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
     t.integer  "position"
     t.string   "slug"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|

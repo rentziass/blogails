@@ -11,6 +11,11 @@ p
   - @category.articles.each do |article|
     = simple_format article.title
   end
+  
+p
+  strong Image:
+  br
+  = image_tag @category.image.url(:thumb)
 
 br
 - if current_user.role.name == "admin"

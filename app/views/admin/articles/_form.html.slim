@@ -31,6 +31,11 @@
     = f.label :date
     = f.datetime_select :date
   .field
+    = f.label :article_image
+    = f.fields_for 'article_images_attributes[]', @article.article_images do |builder|
+      = builder.file_field :image, multiple: true
+    
+  .field
     = f.label :category
     = hidden_field_tag "article[category_ids][]", nil
     - Category.all.each do |category|

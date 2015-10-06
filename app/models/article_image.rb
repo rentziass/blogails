@@ -1,8 +1,5 @@
-class Category < ActiveRecord::Base
-  has_many :article_categories
-  has_many :articles, through: :article_categories, dependent: :destroy
-
-  validates_presence_of :title, :description
+class ArticleImage < ActiveRecord::Base
+  belongs_to :article
 
   has_attached_file :image, styles: {
     thumb: '200x200>',

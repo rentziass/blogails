@@ -8,6 +8,9 @@ class Article < ActiveRecord::Base
 
   friendly_id :title, use: [:slugged, :finders]
 
+  has_many :article_images, dependent: :destroy
+  accepts_nested_attributes_for :article_images, allow_destroy: true
+
 ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
   def self.available
     where("date <= ?", Time.now)

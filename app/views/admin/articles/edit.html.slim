@@ -33,6 +33,9 @@ h1 Editing admin_article
     = f.label :date
     = f.datetime_select :date
   .field
+    = f.label :image
+    = f.file_field :image
+  .field
     = f.label :category
     = hidden_field_tag "article[category_ids][]", nil
     - Category.all.each do |category|

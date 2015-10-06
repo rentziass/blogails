@@ -5,6 +5,10 @@ class Page < ActiveRecord::Base
 
   friendly_id :title, use: [:slugged, :finders]
 
+  def self.page_visible
+    where("visible = ?", true)
+  end
+
   ########### Slug change on update ################
   attr_writer :use_slug
 
