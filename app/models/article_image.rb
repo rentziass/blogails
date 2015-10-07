@@ -1,4 +1,5 @@
 class ArticleImage < ActiveRecord::Base
+  belongs_to :article
   has_attached_file :image, styles: {
     thumb: '200x200>',
     medium: '500x500#',

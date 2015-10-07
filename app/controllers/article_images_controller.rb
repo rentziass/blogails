@@ -1,13 +1,11 @@
 class ArticleImagesController < ApplicationController
-
-  def create
-    # Take upload from params[:file] and store it somehow...
-    # Optionally also accept params[:hint] and consume if needed
-    render json: {
-      image: {
-        url: ":s3_domain_url"
-      }
-    }
-  end
+  # def create
+  #   @article = ArticleImage.create(article_image_params)
+  # end
+  #
+  # private
+  #   def article_image_params
+  #     params.require(:article_image).permit(:image)
+  #   end
 
 end
