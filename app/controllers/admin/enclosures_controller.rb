@@ -58,6 +58,6 @@ class Admin::EnclosuresController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enclosure_params
-      params.require(:enclosure).permit(:title, :description, :user_id, :current_user)
+      params.require(:enclosure).permit(:title, :description, :user_id, :current_user, :file)
     end
 end
