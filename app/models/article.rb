@@ -8,6 +8,15 @@ class Article < ActiveRecord::Base
 
   friendly_id :title, use: [:slugged, :finders]
 
+  has_attached_file :image, styles: {
+    thumb: '200x200>',
+    medium: '500x500#',
+    large: '1000x1000>'
+  }, :path => "blogails/:class/:attachment/:id/:style/:filename.:extension", :url => ":s3_domain_url"
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
   def self.available
     where("date <= ?", Time.now)

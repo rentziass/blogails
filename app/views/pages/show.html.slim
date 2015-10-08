@@ -2,5 +2,8 @@ h1 = @page.title
 .text
   p
     = @page.text.html_safe
+    br
+    br
+    = image_tag @page.image.url(:thumb)
 
 = link_to 'Home', home_index_path

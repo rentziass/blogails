@@ -50,6 +50,8 @@ p
   
 p
   strong Image:
+  br
+  = image_tag @article.image.url(:thumb)
 
 br
 - if current_user.role.name == "admin" || @article.user_id == current_user.id

@@ -20,6 +20,10 @@ h1 = @article.title
       = link_to  category.title, category_path(category)
       br 
     end 
+    br
+    b Image:
+    br
+    = image_tag @article.image.url(:thumb)
     
 h2 Comments
 p
