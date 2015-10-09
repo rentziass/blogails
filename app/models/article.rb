@@ -30,7 +30,6 @@ class Article < ActiveRecord::Base
     where("evidence = ?", true)
   end
 
-
 ########### Slug change on update ################
   attr_writer :use_slug
 

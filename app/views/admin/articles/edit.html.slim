@@ -17,6 +17,9 @@ h1 Editing admin_article
   .field
     = f.label :text
     = f.text_area :text, :class => "tinymce", :rows => 20, :cols => 100
+  .fiel
+    = f.label :draft, "Segna come bozza"
+    = f.check_box :draft
   .field
     = f.label :evidence
     = f.check_box :evidence
