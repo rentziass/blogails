@@ -10,8 +10,8 @@ p
 p
   strong File:
   br
-  = @enclosure.file.url
-
+  = link_to 'Download', @enclosure.file.url
+  
 br
 - if current_user.role.name == "admin" || @enclosure.user_id == current_user.id
   = link_to 'Edit', edit_admin_enclosure_path(@enclosure)

@@ -7,7 +7,7 @@ class Enclosure < ActiveRecord::Base
     large: '1000x1000>'
   }, :path => "blogails/:class/:attachment/:id/:style/:filename.:extension", :url => ":s3_domain_url"
 
-  # Validate the attached image is image/jpg, image/png, etc
-  do_not_validate_attachment_file_type :file
+  # Validate the attached file is image/jpg, image/png, pdf
+  validates_attachment_content_type :file, :content_type => ["image/jpeg","image/png","application/pdf"]
 
 end

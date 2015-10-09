@@ -15,7 +15,7 @@ h1 Editing admin_enclosure
     = f.label :description
     = f.text_area :description
   .field
-    = f.label :file
+    = f.label :file, "(Only pdf, jpg and png allowed)"
     = f.file_field :file
   .actions = f.submit
 
