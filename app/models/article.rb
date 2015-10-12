@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  searchkick autocomplete: ['title']
   extend FriendlyId
 
   has_many :article_categories
@@ -49,5 +50,7 @@ class Article < ActiveRecord::Base
   end
 
   before_validation { self.image.clear if self.remove_image == '1'}
+
+############### SEARCH ##############
 
 end

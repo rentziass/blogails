@@ -3,6 +3,13 @@ class Admin::ArticlesController < Admin::AdminController
 
   def index
     @articles = Article.all.order(:date)
+
+    if params[:query].present?
+      @articles = Article.search(params[:query], page: params[:page])
+    else
+      @articles = Article.all.page params[:page]
+    end
+
   end
 
   def show
@@ -51,13 +58,17 @@ class Admin::ArticlesController < Admin::AdminController
     end
   end
 
+  def autocomplete
+     render json: Article.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+   end
+
   private
     def set_admin_article
       @article = Article.friendly.find(params[:id])
     end
 
     def article_params
-      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, :slug, :use_slug, { category_ids: [] }, :current_user, :summary, :image, :draft, :remove_image)
+      params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, :slug, :use_slug, { category_ids: [] }, :current_user, :summary, :image, :remove_image)
     end
 
 end

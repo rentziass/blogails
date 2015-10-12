@@ -39,8 +39,11 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'aws-sdk', '~> 1.37'
 gem 'paperclip'
 
-####### Pagination #####
+########## Pagination
 gem 'kaminari'
+
+########## SEARCH
+gem 'searchkick'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

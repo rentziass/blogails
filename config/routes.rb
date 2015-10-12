@@ -13,7 +13,15 @@ Rails.application.routes.draw do
     resources :pages
     resources :user_lists
     resources :options
+    resources :articles, only: :index do
+      collection do
+        post :import
+        get :autocomplete # <= add this line
+      end
+      root to: 'articles#index'
+    end
   end
+
   post '/tinymce_assets' => 'tinymce_assets#create'
   resources :pages
   resources :articles do

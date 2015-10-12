@@ -1,5 +1,11 @@
 h1 Listing admin_article
 
+= form_tag admin_articles_path, method: :get do
+  - if params[:query].present?
+    = link_to "clear", admin_articles_path
+  = text_field_tag :query, params[:query], id: "article_search", autocomplete: "on"
+  = submit_tag "Search"
+
 table
   thead
     tr
