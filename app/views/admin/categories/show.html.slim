@@ -15,7 +15,7 @@ p
 p
   strong Image:
   br
-  = image_tag @category.image.url(:thumb)
+  = image_tag @category.image.url(:thumb) if @category.image.present?
 
 br
 - if current_user.role.name == "admin"

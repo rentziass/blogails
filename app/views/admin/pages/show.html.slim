@@ -18,7 +18,7 @@ p
 p
   strong Image:
   br
-  = image_tag @page.image.url(:thumb)
+  = image_tag @page.image.url(:thumb) if @page.image.present?
   
 br
 - if current_user.role.name == "admin" || @page.user_id == current_user.id

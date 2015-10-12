@@ -17,6 +17,11 @@ h1 Editing admin_category
   .field
     = f.label :image
     = f.file_field :image
+  .field
+    - if @category.image?
+      = image_tag @category.image.url(:thumb)
+      = f.check_box :remove_image
+      = f.label :remove_image
   .actions = f.submit
 
 

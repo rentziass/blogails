@@ -8,6 +8,6 @@ h1 = @category.title
       = link_to article.title, article_path(article)
       br
     end
-    = image_tag @category.image.url(:thumb)
+    = image_tag @category.image.url(:thumb) if @category.image.present?
 
 = link_to 'Home', home_index_path

@@ -12,4 +12,14 @@ class Category < ActiveRecord::Base
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+################ REMOVE IMAGE #############
+  attr_writer :remove_image
+
+  def remove_image
+    @remove_image || false
+  end
+
+  before_validation { self.image.clear if self.remove_image == '1'}
+
 end

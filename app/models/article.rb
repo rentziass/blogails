@@ -41,4 +41,13 @@ class Article < ActiveRecord::Base
     slug.blank? || title_changed? if use_slug == '1'
   end
 
+################ REMOVE IMAGE #############
+  attr_writer :remove_image
+
+  def remove_image
+    @remove_image || false
+  end
+
+  before_validation { self.image.clear if self.remove_image == '1'}
+
 end
