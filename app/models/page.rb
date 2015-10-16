@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  searchkick autocomplete: ['title']
   extend FriendlyId
   belongs_to :user
   friendly_id :title, use: [:slugged, :finders]

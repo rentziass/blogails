@@ -59,8 +59,8 @@ class Admin::ArticlesController < Admin::AdminController
   end
 
   def autocomplete
-     render json: Article.search(params[:query], autocomplete: true, limit: 10).map(&:title)
-   end
+    render json: Article.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+  end
 
   private
     def set_admin_article

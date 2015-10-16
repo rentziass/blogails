@@ -2,6 +2,13 @@ class Admin::PagesController < Admin::AdminController
   before_action :set_admin_page, only: [:show, :edit, :update, :destroy]
   def index
     @pages = Page.all
+
+    if params[:query].present?
+      @pages = Page.search(params[:query], page: params[:page])
+    else
+      @pages = Page.all.page params[:page]
+    end
+
   end
 
   def show
@@ -48,6 +55,10 @@ class Admin::PagesController < Admin::AdminController
         format.json { head :no_content }
       end
     end
+  end
+
+  def autocomplete
+    render json: Page.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   private
