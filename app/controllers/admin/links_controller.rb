@@ -1,5 +1,5 @@
 class Admin::LinksController < Admin::AdminController
-    before_action :set_admin_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_link, only: [:show, :edit, :update, :destroy]
 
   def index
     @links = Link.all
@@ -18,47 +18,36 @@ class Admin::LinksController < Admin::AdminController
   def create
     @link = current_user.links.build(link_params)
 
-    respond_to do |format|
-      if @link.save
-        format.html { redirect_to admin_link_path(@link), notice: 'Link was successfully created.' }
-        format.json { render :show, status: :created, location: @link }
-      else
-        format.html { render :new }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
+    if @link.save
+      redirect_to admin_link_path(@link)
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @link.update(link_params)
-        format.html { redirect_to admin_link_path(@link), notice: 'Link was successfully updated.' }
-        format.json { render :show, status: :ok, location: @link }
-      else
-        format.html { render :edit }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
+    if @link.update(link_params)
+      redirect_to admin_link_path(@link)
+    else
+      render :edit
     end
   end
 
   def destroy
     if @link
       @link.destroy
-      respond_to do |format|
-        format.html { redirect_to  admin_links_url, notice: 'Link was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      redirect_to admin_links_url
     end
   end
 
   private
 
-    def set_admin_link
-      @link = Link.find(params[:id])
-    end
+  def set_admin_link
+    @link = Link.find(params[:id])
+  end
 
-    def link_params
-      params.require(:link).permit(:title, :description, :link, :user_id, :current_user)
-    end
+  def link_params
+    params.require(:link).permit(:title, :description, :link, :user_id, :current_user)
+  end
 
 end

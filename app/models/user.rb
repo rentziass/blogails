@@ -20,8 +20,9 @@ class User < ActiveRecord::Base
   before_create :set_default_role
 
   private
-    def set_default_role
-      self.role ||= Role.find_by_name('admin')
-    end
+  
+  def set_default_role
+    self.role ||= Role.find_by_name('admin')
+  end
 
 end

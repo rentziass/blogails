@@ -20,15 +20,15 @@ class Article < ActiveRecord::Base
 
 ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
   def self.available
-    where("date <= ?", Time.now)
+    where('date <= ?', Time.now)
   end
 ########### ARTICOLI VISIBILI SOLO SE L'ATTRIBUTO "Visible" E' VERO
   def self.article_visible
-    where("visible = ?", true)
+    where('visible = ?', true)
   end
 ########### ARTICOLI VISIBILI NELL'ELENCO DEL MENU' SOLO SE L'ATTRIBUTO "Evidence" E' VERO
   def self.display_evidence
-    where("evidence = ?", true)
+    where('evidence = ?', true)
   end
 
 ########### Slug change on update ################

@@ -1,5 +1,6 @@
 class Admin::PagesController < Admin::AdminController
   before_action :set_admin_page, only: [:show, :edit, :update, :destroy]
+
   def index
     @pages = Page.all
 
@@ -8,7 +9,6 @@ class Admin::PagesController < Admin::AdminController
     else
       @pages = Page.all.page params[:page]
     end
-
   end
 
   def show
@@ -23,37 +23,26 @@ class Admin::PagesController < Admin::AdminController
 
   def create
     @page = current_user.pages.build(page_params)
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+
+    if @page.save
+      redirect_to admin_page_path(@page)
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.update(page_params)
+      redirect_to admin_page_path(@page)
+    else
+      render :edit
     end
-
   end
 
   def destroy
     if @page
       @page.destroy
-      respond_to do |format|
-        format.html { redirect_to  admin_pages_url, notice: 'Page was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      redirect_to  admin_pages_url
     end
   end
 
@@ -62,12 +51,13 @@ class Admin::PagesController < Admin::AdminController
   end
 
   private
-    def set_admin_page
-      @page = Page.friendly.find(params[:id])
-    end
 
-    def page_params
-      params.require(:page).permit(:title, :text, :visible, :user_id, :current_user, :position, :slug, :use_slug, :image, :remove_image)
-    end
+  def set_admin_page
+    @page = Page.friendly.find(params[:id])
+  end
+
+  def page_params
+    params.require(:page).permit(:title, :text, :visible, :user_id, :current_user, :position, :slug, :use_slug, :image, :remove_image)
+  end
 
 end

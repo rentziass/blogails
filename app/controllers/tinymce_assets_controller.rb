@@ -7,9 +7,9 @@ class TinymceAssetsController < ApplicationController
 
     render json: {
       image: {
-        :url => article_image.image.url,
+        url: article_image.image.url,
         height: 100
       }
-    }, content_type: "text/html"
+    }, content_type: 'text/html'
   end
 end
