@@ -51,6 +51,4 @@ class Article < ActiveRecord::Base
 
   before_validation { self.image.clear if self.remove_image == '1'}
 
-############### SEARCH ##############
-
 end
