@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-########## RUBY VERSION
-ruby '2.2.2'
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -26,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ######## EDITOR
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
 gem 'puma'
 
@@ -37,8 +37,11 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'aws-sdk', '~> 1.37'
 gem 'paperclip'
 
-####### Pagination #####
+########## Pagination
 gem 'kaminari'
+
+########## SEARCH
+gem 'searchkick'
 
 group :development do
   gem 'rails-erd'

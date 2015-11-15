@@ -23,6 +23,14 @@ h1 Editing admin_page
   .field
     = f.label :use_slug
     = f.check_box :use_slug
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    - if @page.image?
+      = image_tag @page.image.url(:thumb)
+      = f.check_box :remove_image
+      = f.label :remove_image
   .actions = f.submit
 
 

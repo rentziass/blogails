@@ -14,7 +14,12 @@ p
   strong Position:
   br
   = @page.position
-
+  
+p
+  strong Image:
+  br
+  = image_tag @page.image.url(:thumb) if @page.image.present?
+  
 br
 - if current_user.role.name == "admin" || @page.user_id == current_user.id
   = link_to 'Edit', edit_admin_page_path(@page)

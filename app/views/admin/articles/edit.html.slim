@@ -33,6 +33,9 @@ h1 Editing admin_article
     = f.label :date
     = f.datetime_select :date
   .field
+    = f.label :image
+    = f.file_field :image
+  .field
     = f.label :category
     = hidden_field_tag "article[category_ids][]", nil
     - Category.all.each do |category|
@@ -42,6 +45,14 @@ h1 Editing admin_article
   .field
     = f.label :use_slug
     = f.check_box :use_slug
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    - if @article.image?
+      = image_tag @article.image.url(:thumb)
+      = f.check_box :remove_image
+      = f.label :remove_image
   .actions = f.submit
 
 

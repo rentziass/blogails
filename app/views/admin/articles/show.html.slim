@@ -46,7 +46,16 @@ p
   
 p 
   strong Tags:
-  = simple_format @article.tag
+  br
+  ul
+    - @article.tag.split(%r{,\s*}).map(&:strip).each do |at|
+      li
+        = at
+  
+p
+  strong Image:
+  br
+  = image_tag @article.image.url(:thumb) if @article.image.present?
 
 br
 - if current_user.role.name == "admin" || @article.user_id == current_user.id

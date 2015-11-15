@@ -1,9 +1,11 @@
 = div_for comment do
-  = comment.user.first_name
+  = comment.author_name
   f &nbsp
   f Says:
   br
   = comment.body
-  = button_to "Destroy", @comment, :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+  - if signed_in? && ( current_user.role.name == "admin" || comment.author_name == current_user.display_name)
+    = button_to "Destroy", [comment.article, comment], :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
+  br
   br
 end

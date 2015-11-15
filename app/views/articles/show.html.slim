@@ -3,7 +3,7 @@ h1 = @article.title
   p
     b Name:
     br
-    = @article.user.first_name
+    = @article.user.display_name
     br
     br
     b Summary:
@@ -20,10 +20,14 @@ h1 = @article.title
       = link_to  category.title, category_path(category)
       br 
     end 
+    br
+    b Image:
+    br
+    = image_tag @article.image.url(:thumb)
     
 h2 Comments
 p
-  = render :partial => @article.comments
+  = render :partial => @article.comments.order(created_at: :asc)
   
 - if @article.commentable == true
   = form_for [@article, Comment.new] do |f|

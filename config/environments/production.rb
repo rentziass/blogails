@@ -4,9 +4,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
-        :bucket => ENV['BLOGAILS_S3_BUCKET_NAME'],
-        :access_key_id => ENV['BLOGAILS_AWS_ACCESS_KEY'],
-        :secret_access_key => ENV['BLOGAILS_AWS_SECRET_ACCESS_KEY']
+        :bucket => Rails.application.secrets.bucket_s3,
+        :access_key_id => Rails.application.secrets.access_s3,
+        :secret_access_key => Rails.application.secrets.secret_s3
       }
     }
 
