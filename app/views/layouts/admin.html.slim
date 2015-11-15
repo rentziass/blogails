@@ -1,0 +1,29 @@
+doctype html
+html
+	head
+		title Blogails Admin
+		= stylesheet_link_tag 'admin', media: 'all'
+		= javascript_include_tag 'application'
+		= csrf_meta_tags
+		= tinymce_assets
+		link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+	body
+		nav.blue.light-blue
+			= render 'layouts/admin/header'
+			= render 'layouts/admin/sidebar'
+			a.button-collapse data-activates="slide-out" href="#" 
+				i.mdi-navigation-menu
+		
+		main
+			= yield
+
+		= render 'layouts/admin/footer'
+
+		// JS
+		
+		= tinymce
+
+		coffee:
+			$('.button-collapse').sideNav
+				menuWidth: 250
+				edge: 'left'

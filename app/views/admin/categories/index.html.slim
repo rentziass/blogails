@@ -1,52 +1,28 @@
-h1 Listing admin_categories
+.row
+  .col.s12
+    h3 All Categories
+    = link_to 'New Category', new_admin_category_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
+.row
+  .col.s12
+    table.bordered.highlight.responsive-table.categories_list
+      thead
+        tr
+          th.id_cell ID
+          th Title
+          th Description
+          th.actions_cell Actions
 
-  tbody
-    - @categories.each do |category|
-      tr
-        td = category.title
-        td = category.description
-        - category.articles.each do |article|
-          td = article.title
-        end
-        td = link_to 'Show', admin_category_path(category)
-        - if current_user.role.name == "admin"
-          td = link_to 'Edit', edit_admin_category_path(category)
-        end
-        - if current_user.role.name == "admin"
-          td = button_to "Destroy", admin_category_path(category), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-        end
-br
-p
-  strong You are logged as:
-  br
-  = current_user.email
-
-- if current_user.role.name == "admin"
-  = link_to 'New Category', new_admin_category_path
-  br
-  br
-end
-
-= link_to 'Home', admin_root_path
-br
-br
-= link_to 'Articoli', admin_articles_path
-br
-=link_to 'Link', admin_links_path
-br
-= link_to 'Allegati', admin_enclosures_path
-br
-= link_to 'Pagine', admin_pages_path
-br
-= link_to 'Utenti', admin_user_lists_path
-br
-= link_to 'Opzioni', admin_options_path
+      tbody
+        - @categories.each do |category|
+          tr 
+            td.id_cell = category.id
+            td = category.title
+            td = category.description
+            td.actions_cell
+              a.btn-floating.waves-effect.waves-light.light-blue href=category_path(category) target="_blank"
+                i.material-icons open_in_new
+              a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_category_path(category)
+                i.material-icons mode_edit
+              a.btn-floating.waves-effect.waves-light.pink href=admin_category_path(category) onclick='return confirm("Are you sure?")' method="delete"
+                i.material-icons delete

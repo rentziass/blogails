@@ -1,32 +1,30 @@
 .row.auth_page
   .col.s12.m6.offset-m3
-    .card
-      .card-content
-        h2.center-align.cyan-text Log In
+    h2.center-align.light-blue-text Blogails
+    h5.center-align.light-blue-text.text-darken-4 Login
+    .row
+      .col.s12.m8.offset-m2
 
-        .row
-          .col.s12.m8.offset-m2
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          p
+            = devise_error_messages!
+            
+          .input-field.email_field
+            = f.email_field :email
+            = f.label :email
 
-            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-              p
-                = devise_error_messages!
-                
-              .input-field.email_field
-                = f.email_field :email
-                = f.label :email
+          .input-field.password_field
+            = f.password_field :password, autocomplete: "off"
+            = f.label :password
 
-              .input-field.password_field
-                = f.password_field :password, autocomplete: "off"
-                = f.label :password
+          - if devise_mapping.rememberable?
+            p.remember_me
+              = f.check_box :remember_me, class:'filled-in'
+              = f.label :remember_me
 
-              - if devise_mapping.rememberable?
-                p.remember_me
-                  = f.check_box :remember_me, class:'filled-in'
-                  = f.label :remember_me
+          .login_button_field
+            = f.button "Log in", class:"btn waves-effect waves-light light-blue darken-4"
+      .divider
 
-              .login_button_field
-                = f.button "Log in", class:"btn waves-effect waves-light"
-          .divider
-
-        p.center-align.session_links
-          = render "users/shared/links"
+    p.center-align.session_links
+      = render "users/shared/links"

@@ -1,63 +1,181 @@
-ul class="collapsible" data-collapsible="accordion"
+ul#slide-out.side-nav.fixed.admin_menu
+	a.blogails_logo href=admin_root_path
+		img src="http://koodit.s3.amazonaws.com/blogails/shared/blogails_logo.png"
+
+	/ li
+	/ 	a href="#!" 
+	/ 		| Dashboard
+
+	// Articles
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Articles
+					i.material-icons library_books
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_article_path
+								| New Article
+						li
+							a href=admin_articles_path
+								| All Articles
+
+	// Categories
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Categories
+					i.material-icons label
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_category_path
+								| New Category
+						li
+							a href=admin_categories_path
+								| All Categories
 	
-	/ Articles
-	li
-		.collapsible-header
-			i.material-icons library_books
-			| Articles
-		.collapsible-body
-			ul.collection
-				a.collection-item href=new_admin_article_path
-					div
-						| New Article
-						i.material-icons.secondary-content library_add
+	// Pages
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Pages
+					i.material-icons insert_drive_file
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_page_path
+								| New Page
+						li
+							a href=admin_pages_path
+								| All Pages
 
-				a.collection-item href=admin_articles_path
-					div
-						| All Articles
-						i.material-icons.secondary-content library_books
+	// Attachments
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Attachments
+					i.material-icons attachment
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_enclosure_path
+								| New Attachment
+						li
+							a href=admin_enclosures_path
+								| All Attachments
 
-	/ Categories
-	li
-		.collapsible-header
-			i.material-icons label
-			| Categories
-		.collapsible-body
-			ul.collection
-				a.collection-item href=new_admin_category_path
-					div
-						| New Category
-						i.material-icons.secondary-content add_circle
+	// Links
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Links
+					i.material-icons link
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_link_path
+								| New Link
+						li
+							a href=admin_links_path
+								| All Links
 
-				a.collection-item href=admin_categories_path
-					div
-						| All Categories
-						i.material-icons.secondary-content label
+	// Options
+	li.no-padding
+		ul.collapsible.collapsible-accordion
+			li
+				a.collapsible-header
+					| Options
+					i.material-icons settings
+				.collapsible-body
+					ul
+						li
+							a href=new_admin_option_path
+								| New Option
+						li
+							a href=admin_options_path
+								| All Options
 
-	/ Pages
-	li
-		.collapsible-header
-			i.material-icons insert_drive_file
-			| Pages
-		.collapsible-body
-			ul.collection
-				a.collection-item href=new_admin_page_path
-					div
-						| New Page
-						i.material-icons.secondary-content note_add
 
-				a.collection-item href=admin_pages_path
-					div
-						| All Categories
-						i.material-icons.secondary-content insert_drive_file
 
-/ br
-/ =link_to 'Link', admin_links_path
-/ br
-/ = link_to 'Allegati', admin_enclosures_path
-/ br
-/ = link_to 'Pagine', admin_pages_path
-/ br
-/ = link_to 'Utenti', admin_user_lists_path
-/ br
-/ = link_to 'Opzioni', admin_options_path
+/ 				a.collection-item href=new_admin_article_path
+/ 					div
+/ 						| New Article
+/ 						i.material-icons.secondary-content library_add
+
+/ 				a.collection-item href=admin_articles_path
+/ 					div
+/ 						| All Articles
+/ 						i.material-icons.secondary-content library_books
+
+
+/ 				a.collection-item href=new_admin_category_path
+/ 					div
+/ 						| New Category
+/ 						i.material-icons.secondary-content add_circle
+
+/ 				a.collection-item href=admin_categories_path
+/ 					div
+/ 						| All Categories
+/ 						i.material-icons.secondary-content label
+
+
+/ 				a.collection-item href=new_admin_page_path
+/ 					div
+/ 						| New Page
+/ 						i.material-icons.secondary-content note_add
+
+/ 				a.collection-item href=admin_pages_path
+/ 					div
+/ 						| All Categories
+/ 						i.material-icons.secondary-content insert_drive_file
+
+
+/ 				a.collection-item href=new_admin_enclosure_path
+/ 					div
+/ 						| New Attachment
+/ 						i.material-icons.secondary-content add_circle
+
+/ 				a.collection-item href=admin_enclosures_path
+/ 					div
+/ 						| All Attachments
+/ 						i.material-icons.secondary-content attachment
+
+
+/ 				a.collection-item href=new_admin_link_path
+/ 					div
+/ 						| New Link
+/ 						i.material-icons.secondary-content add_circle
+
+/ 				a.collection-item href=admin_links_path
+/ 					div
+/ 						| All Links
+/ 						i.material-icons.secondary-content link
+
+
+/ 				/ a.collection-item href=new_admin_user_list_path
+/ 				/ 	div
+/ 				/ 		| New User
+/ 				/ 		i.material-icons.secondary-content add_circle
+
+/ 				a.collection-item href=admin_user_lists_path
+/ 					div
+/ 						| All Users
+/ 						i.material-icons.secondary-content account_box
+
+
+/ 				a.collection-item href=new_admin_option_path
+/ 					div
+/ 						| New Option
+/ 						i.material-icons.secondary-content add_circle
+
+/ 				a.collection-item href=admin_options_path
+/ 					div
+/ 						| All Options
+/ 						i.material-icons.secondary-content settings

@@ -1,0 +1,272 @@
+it:
+  devise_token_auth:
+    sessions:
+      bad_credentials: "Credenziali di login errate."
+
+  number:
+    format:
+      delimiter: "."
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: true
+      separator: ","
+
+    currency:
+      format:
+        format: "%u %n"
+        unit: "€"
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+        # precision:
+
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+
+    human:
+      format:
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Mila"
+          million: "Milioni"
+          billion: "Miliardi"
+          trillion: "Bilioni"
+          quadrillion: "Biliardi"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%a %d %b"
+      full_short: "%d %b %Y"
+      long: "%d %B %Y"
+
+    day_names:
+      - domenica
+      - lunedì
+      - martedì
+      - mercoledì
+      - giovedì
+      - venerdì
+      - sabato
+    abbr_day_names:
+      - Dom
+      - Lun
+      - Mar
+      - Mer
+      - Gio
+      - Ven
+      - Sab
+
+    month_names:
+      - ~
+      - gennaio
+      - febbraio
+      - marzo
+      - aprile
+      - maggio
+      - giugno
+      - luglio
+      - agosto
+      - settembre
+      - ottobre
+      - novembre
+      - dicembre
+    abbr_month_names:
+      - ~
+      - Gen
+      - Feb
+      - Mar
+      - Apr
+      - Mag
+      - Giu
+      - Lug
+      - Ago
+      - Set
+      - Ott
+      - Nov
+      - Dic
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%a %d %b %H:%M"
+      day_month: "%d %b"
+      full_short: "%d %b %Y"
+      long: "%d %B %Y %H:%M"
+      input: "%d-%m-%Y"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one:  "1 secondo"
+        other: "%{count} secondi"
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "%{count} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre %{count} anni"
+      almost_x_years:
+        one:   "circa 1 anno"
+        other: "circa %{count} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+    select:
+      prompt: "Per favore, seleziona"
+
+  helpers:
+    select:
+      prompt: "Per favore, seleziona"
+
+    submit:
+      create: 'Crea %{model}'
+      update: 'Aggiorna %{model}'
+      submit: 'Invia %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "non è incluso nella lista"
+      exclusion: "è riservato"
+      invalid: "non è valido"
+      confirmation: "non coincide con la conferma"
+      accepted: "deve essere accettata"
+      empty: "non può essere vuoto"
+      blank: "non può essere lasciato in bianco"
+      too_long:
+        one: "è troppo lungo (il massimo è 1 carattere)"
+        other: "è troppo lungo (il massimo è %{count} caratteri)"
+      too_short:
+        one:  "è troppo corto (il minimo è 1 carattere)"
+        other:  "è troppo corto (il minimo è %{count} caratteri)"
+      wrong_length:
+        one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
+        other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
+      not_a_number: "non è un numero"
+      not_an_integer: "non è un intero"
+      greater_than: "deve essere superiore a %{count}"
+      greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
+      equal_to: "deve essere uguale a %{count}"
+      less_than: "deve essere meno di %{count}"
+      less_than_or_equal_to: "deve essere meno o uguale a %{count}"
+      odd: "deve essere dispari"
+      even: "deve essere pari"
+      altezza: "deve essere maggiore di zero"
+
+      generic: "Si è verificato un errore nell'elaborazione della richiesta"
+      password_change_needed: "Per motivi di sicurezza è necessario cambiare password prima di accedere all'area riservata del sito"
+      paypal:
+        connection: "Si è verificato un errore durante la connessione a PayPal. Si prega di riprovare."
+        cancelled: "L'acquisto è stato cancellato da PayPal. Si prega di riprovare."
+
+    page_not_found:
+      title: "Ops, pagina non trovata!"
+      body_html: "<p>La pagina che stavi cercando non esiste oppure è stata spostata</p><p>La preghiamo di contattare il Servizio Clienti in caso di necessità</p>"
+
+  activerecord:
+
+    errors:
+      models:
+        football_user:
+          attributes:
+            fanta_user_id:
+              taken: "Un utente legato a questo FantaUser è già esistente"
+
+    models:
+      article:
+        one: "Articolo"
+        other: "Articoli"
+
+      cup:
+        one: "Coppa"
+        other: "Coppe"
+
+      cup_prize:
+        one: "Premio"
+        other: "Premi"
+
+      assigned_prize:
+        one: "Premio assegnato"
+        other: "Premi assegnati"
+
+      range_prize:
+        one: "Premio in range"
+        other: "Premi in range"
+
+    attributes:
+
+      player:
+        first_name: "Nome"
+        last_name: "Cognome"
+        role: "Ruolo"
+        value: "Valore"
+        birth_date: "Data di nascita"
+
+  admin:

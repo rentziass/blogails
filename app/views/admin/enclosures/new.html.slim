@@ -1,5 +1,23 @@
-h1 New admin_enclosure
+.row
+  .col.s12
+    h3 New Attachment
 
-== render 'form'
+= form_for @enclosure, url: admin_enclosures_path do |f|
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          h6 = :title
+          .input-field
+            = f.text_field :title, placeholder:"Your attachment's title"
+            /= f.label :title, style:'margin: 0px'
 
-= link_to 'Back', admin_enclosures_path
+      .card
+        .card-content
+          h6 = :description
+          .input-field
+            = f.text_area :description, class:'materialize-textarea', placeholder:"Your attachment's description"
+            /= f.label :description
+
+    .col.s12.m3
+      = f.button "Add Attachment", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"

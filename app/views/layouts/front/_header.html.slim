@@ -1,0 +1,14 @@
+nav#navigation.nav-primary
+  a.menu.menu-icon#menu-icon href="#"
+  ul.menu.omega-nav-menu.menu-primary
+    - @pages.each do |page|
+      li.page_item
+        = link_to page.title, page_path(page)
+
+header#header.site-header
+  .wrap
+    .title-area
+      h1.site-title
+        a href="#" Blogails
+      h3.site-description
+        span Blogging like a Train

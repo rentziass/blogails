@@ -1,5 +1,48 @@
-h1 New admin_page
+.row
+  .col.s12
+    h3 New page
 
-== render 'form'
+= form_for @page, url: admin_pages_path do |f|
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          - if @page.errors.any?
+            #error_explanation
+              h2 = "#{pluralize(@page.errors.count, "error")} prohibited this admin_article from being saved:"
+              ul
+                - @page.errors.full_messages.each do |message|
+                  li = message
+          
+          h6 = :title
+          .input-field
+            = f.text_field :title, placeholder:"Your page's title"
+            /= f.label :title, style:'margin: 0px'
 
-= link_to 'Back',  admin_pages_path
+      .card
+        .card-content
+          / = f.label :text
+          = f.text_area :text, :class => "tinymce"
+
+    .col.s12.m3
+      .card
+        .card-content
+          h6 Order
+          p
+            = f.label :position
+            /= f.text_field :position
+     
+      .card
+        .card-content
+          h6 Regenerate Slug
+          = f.check_box :use_slug, class:'filled-in'
+          = f.label :use_slug
+
+      = f.button "Publish page", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"
+
+
+/ h1 New admin_page
+
+/ == render 'form'
+
+/ = link_to 'Back',  admin_pages_path

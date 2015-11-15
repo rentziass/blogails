@@ -1,16 +1,15 @@
-- if user_signed_in?
-	ul.dropdown-content id="user-dropdown"
-		li
-			a href="#!"
-				= current_user.email
-		li 
-			= link_to 'Log out', destroy_user_session_path
+ul.left.hide-on-med-and-down
+	= link_to 'Blogails', admin_root_path, class:"brand-logo"
 
-	nav.header
-		.nav-wrapper.blue-grey.lighten-4
-			= link_to 'Blogails', admin_root_path, class:"brand-logo blue-grey-text"
-			ul.right
-				li
-					a.dropdown-button.blue-grey-text href="#!" data-activates="user-dropdown"
-						= current_user.email
-						i.material-icons.right arrow_drop_down
+ul.right
+	li
+		a.dropdown-button href="#!" data-activates="user-dropdown"
+			= current_user.email
+			i.material-icons.right arrow_drop_down
+
+ul.dropdown-content id="user-dropdown"
+	li
+		a href="#!"
+			= current_user.email
+	li 
+		= link_to 'Log out', destroy_user_session_path

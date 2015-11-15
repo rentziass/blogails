@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Blogails
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+  body
+    .site-container
+      - if current_user
+        = render 'layouts/front/header'
+
+      .site-inner
+        .wrap
+          main.content#content
+            = yield
+          - if current_user
+            = render 'layouts/front/sidebar'
+      
+      - if current_user
+        = render 'layouts/front/footer'
+
+    = tinymce
+

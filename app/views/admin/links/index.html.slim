@@ -1,47 +1,30 @@
-h1 Listing admin_link
+.row
+  .col.s12
+    h3 All Links
+    = link_to 'New Link', new_admin_link_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th Link
-      th
-      th
+.row
+  .col.s12
+    table.bordered.highlight.responsive-table.categories_list
+      thead
+        tr
+          th.id_cell ID
+          th Title
+          th Description
+          th URL
+          th.actions_cell Actions
 
-  tbody
-    - @links.each do |link|
-      tr
-        td = link.title
-        td = link.description
-        td = link_to 'link', link.link
-        td = link_to 'Show', admin_link_path(link)
-        - if current_user.role.name == "admin" || link.user_id == current_user.id
-          td = link_to 'Edit', edit_admin_link_path(link)
-        end
-        - if current_user.role.name == "admin" || link.user_id == current_user.id
-          td = button_to "Destroy", admin_link_path(link), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-        end
-br
-p
-  strong You are logged as:
-  br
-  = current_user.email
-  
-= link_to 'New Link', new_admin_link_path
-br
-br
-= link_to 'Home', admin_root_path
-br
-br
-= link_to 'Articoli', admin_articles_path
-br
-=link_to 'Allegati', admin_enclosures_path
-br
-= link_to 'Categorie', admin_categories_path
-br
-= link_to 'Pagine', admin_pages_path
-br
-= link_to 'Utenti', admin_user_lists_path
-br
-= link_to 'Opzioni', admin_options_path
+      tbody
+        - @links.each do |link|
+          tr 
+            td.id_cell = link.id
+            td = link.title
+            td = link.description
+            td = link.link
+            td.actions_cell
+              a.btn-floating.waves-effect.waves-light.light-blue href=link.link target="_blank"
+                i.material-icons open_in_new
+              a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_link_path(link)
+                i.material-icons mode_edit
+              a.btn-floating.waves-effect.waves-light.pink href=admin_link_path(link) onclick='return confirm("Are you sure?")' method="delete"
+                i.material-icons delete

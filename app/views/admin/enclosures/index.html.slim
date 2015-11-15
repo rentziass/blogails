@@ -1,46 +1,23 @@
-h1 Listing admin_enclosures
+.row
+  .col.s12
+    h3 All Attachments
+    = link_to 'New Attachment', new_admin_enclosure_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th 
-      th
-      th
+.row.attachments_list
+  - @enclosures.each do |enclosure|
+    .col.s12.m4.l3
+      .card
+        .card-content
+          .attachment_icon.valign-wrapper.light-blue
+            i.material-icons.light-blue-text.text-darken-4 attachment
 
-  tbody
-    - @enclosures.each do |enclosure|
-      tr
-        td = enclosure.title
-        td = enclosure.description
-        td = link_to 'Show', admin_enclosure_path(enclosure)
-        - if current_user.role.name == "admin" || enclosure.user_id == current_user.id
-          td = link_to 'Edit', edit_admin_enclosure_path(enclosure)
-        end
-        - if current_user.role.name == "admin" || enclosure.user_id == current_user.id
-          td = button_to "Destroy", admin_enclosure_path(enclosure), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-        end
-br
-p
-  strong You are logged as:
-  br
-  = current_user.email
+          h5 = enclosure.title
+          p = enclosure.description
 
-= link_to 'New Enclosure', new_admin_enclosure_path
-br
-br
-= link_to 'Home', admin_root_path
-br
-br
-= link_to 'Articoli', admin_articles_path
-br
-=link_to 'Link', admin_links_path
-br
-= link_to 'Categorie', admin_categories_path
-br
-= link_to 'Pagine', admin_pages_path
-br
-= link_to 'Utenti', admin_user_lists_path
-br
-= link_to 'Opzioni', admin_options_path
+          .actions_cell
+            a.btn-floating.waves-effect.waves-light.light-blue href="#" target="_blank"
+              i.material-icons open_in_new
+            a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_enclosure_path(enclosure)
+              i.material-icons mode_edit
+            a.btn-floating.waves-effect.waves-light.pink href=admin_enclosure_path(enclosure) onclick='return confirm("Are you sure?")' method="delete"
+              i.material-icons delete

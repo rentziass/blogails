@@ -1,46 +1,45 @@
 .row.auth_page
   .col.s12.m6.offset-m3
-    .card
-      .card-content
-        h2.center-align.cyan-text Sign Up
+      h2.center-align.light-blue-text Blogails
+      h5.center-align.light-blue-text.text-darken-4 Register
 
-        .row
-          .col.s12.m8.offset-m2
+      .row
+        .col.s12.m8.offset-m2
 
-            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-              = devise_error_messages!
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
 
-              .input-field.first_name_field
-                = f.text_field :first_name
-                = f.label :first_name
+            .input-field.first_name_field
+              = f.text_field :first_name
+              = f.label :first_name
 
-              .input-field.last_name_field
-                = f.text_field :last_name
-                = f.label :last_name
+            .input-field.last_name_field
+              = f.text_field :last_name
+              = f.label :last_name
 
-              .input-field.email_field
-                = f.email_field :email
-                = f.label :email
+            .input-field.email_field
+              = f.email_field :email
+              = f.label :email
 
-              .input-field.password_field
-                = f.password_field :password, autocomplete: "off"
-                = f.label :password
+            .input-field.password_field
+              = f.password_field :password, autocomplete: "off"
+              = f.label :password
 
-              .input-field.password_field
-                = f.password_field :password_confirmation, autocomplete: "off"
-                = f.label :password_confirmation
+            .input-field.password_field
+              = f.password_field :password_confirmation, autocomplete: "off"
+              = f.label :password_confirmation
 
-              - if devise_mapping.rememberable?
-                p.remember_me
-                  = f.check_box :remember_me, class:'filled-in'
-                  = f.label :remember_me
+            - if devise_mapping.rememberable?
+              p.remember_me
+                = f.check_box :remember_me, class:'filled-in'
+                = f.label :remember_me
 
-              .login_button_field
-                = f.button "Log in", class:"btn waves-effect waves-light"
-          .divider
+            .login_button_field
+              = f.button "Log in", class:"btn light-blue darken-4 waves-effect waves-light"
+        .divider
 
-        p.center-align.session_links
-          = render "users/shared/links"
+      p.center-align.session_links
+        = render "users/shared/links"
 
 / - if @minimum_password_length
 /   = "#{@minimum_password_length} min chars"

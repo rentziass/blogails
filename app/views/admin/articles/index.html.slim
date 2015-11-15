@@ -1,54 +1,35 @@
-h1 Listing admin_article
+.row
+  .col.s12
+    h3 All Articles
+    = link_to 'New Article', new_admin_article_path, class:"btn  light-blue darken-4 waves-effect waves-light"
 
-table
-  thead
-    tr
-      th User
-      th Name
-      th Title
-      th Summary
-      th Text
-      th Date
-      th Categories
-      th
+.row
+  .col.s12
+    table.bordered.highlight.responsive-table.articles_list
+      thead
+        tr
+          th.id_cell ID
+          th Title
+          th Categories
+          th Date
+          th.actions_cell Actions
 
-  tbody
-    - @articles.each do |article|
-      tr 
-        td = article.user_id
-        td = article.user.first_name
-        td = article.title
-        td = article.summary
-        td = article.text.html_safe
-        td = article.date.strftime("%d-%m-%Y | %H:%M")
-        - article.categories.each do |category|
-          td = category.title
-        end
-        td = link_to 'Show', admin_article_path(article)
-        - if current_user.role.name == "admin" || article.user_id == current_user.id
-          td = link_to 'Edit', edit_admin_article_path(article)
-          td = button_to "Destroy", admin_article_path(article), :method=>:delete, :class=>:destroy, onclick: 'return confirm("Are you sure?")'
-        end
-br
-p
-  strong You are logged as:
-  br
-  = current_user.email
-
-= link_to 'New Article', new_admin_article_path
-br
-br
-= link_to 'Home', admin_root_path
-br
-br
-= link_to 'Categorie', admin_categories_path
-br
-=link_to 'Link', admin_links_path
-br
-= link_to 'Allegati', admin_enclosures_path
-br
-= link_to 'Pagine', admin_pages_path
-br
-= link_to 'Utenti', admin_user_lists_path
-br
-= link_to 'Opzioni', admin_options_path
+      tbody
+        - @articles.each do |article|
+          tr 
+            td.id_cell = article.id
+            td = article.title
+            td
+              - article.categories.each do |category|
+                span = category.title
+            td
+              - if article.date 
+                = article.date.strftime("%d-%m-%Y | %H:%M")
+            td.actions_cell
+              a.btn-floating.waves-effect.waves-light.light-blue href=article_path(article) target="_blank"
+                i.material-icons open_in_new
+              a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_article_path(article)
+                i.material-icons mode_edit
+              a.btn-floating.waves-effect.waves-light.pink href=admin_article_path(article) onclick='return confirm("Are you sure?")' method="delete"
+                i.material-icons delete
+                

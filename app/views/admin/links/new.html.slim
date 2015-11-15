@@ -1,5 +1,30 @@
-h1 New admin_link
+.row
+  .col.s12
+    h3 New Link
 
-== render 'form'
+= form_for @link, url: admin_links_path do |f|
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          h6 = :title
+          .input-field
+            = f.text_field :title, placeholder:"Your link's title"
+            /= f.label :title, style:'margin: 0px'
 
-= link_to 'Back',  admin_links_path
+      .card
+        .card-content
+          h6 = :description
+          .input-field
+            = f.text_area :description, class:'materialize-textarea', placeholder:"Your article's description"
+            /= f.label :description
+
+      .card
+        .card-content
+          h6 = :url
+          .input-field
+            = f.text_field :link, placeholder:"Your link's url"
+            /= f.label :title, style:'margin: 0px'
+
+    .col.s12.m3
+      = f.button "Add Link", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
