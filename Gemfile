@@ -33,6 +33,10 @@ gem 'devise'
 
 gem 'friendly_id', '~> 5.1.0'
 
+########## PRY
+gem 'pry'
+gem 'pry-rails'
+
 ########## AWS e Paperclip
 gem 'aws-sdk', '~> 1.37'
 gem 'paperclip'
@@ -55,19 +59,34 @@ group :development do
   gem "rack-livereload"
   gem "rb-fsevent",              :require => false
   ################# GUARD LIVERELOAD
+
+  gem 'rubocop', require: false
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-end
-
-group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #### TESTING
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem 'faker'
+
+  gem 'railroady'
+end
+
+group :test do
+  gem 'shoulda-matchers', '3.0.0.rc1'
+  gem "database_cleaner"
+  gem 'guard-rspec'
+  gem 'zeus'
 end
 
 ##### FRONTEND
