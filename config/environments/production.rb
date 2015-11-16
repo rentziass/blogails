@@ -2,15 +2,15 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_credentials => {
-        :bucket => Rails.application.secrets.bucket_s3,
-        :access_key_id => Rails.application.secrets.access_s3,
-        :secret_access_key => Rails.application.secrets.secret_s3
-      }
+    storage: :s3,
+    s3_credentials: {
+      bucket: Rails.application.secrets.bucket_s3,
+      access_key_id: Rails.application.secrets.access_s3,
+      secret_access_key: Rails.application.secrets.secret_s3
     }
+  }
 
-    AWS.config(:http_open_timeout => 120, :http_read_timeout => 120, :region => "eu-west-1")
+    AWS.config(http_open_timeout: 120, http_read_timeout: 120, region: "eu-west-1")
 
   # Code is not reloaded between requests.
   config.cache_classes = true
