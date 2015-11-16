@@ -41,6 +41,9 @@ gem 'pry-rails'
 gem 'aws-sdk', '~> 1.37'
 gem 'paperclip'
 
+########## DEFAULT VALUES
+gem 'default_value_for'
+
 ########## Pagination
 gem 'kaminari'
 

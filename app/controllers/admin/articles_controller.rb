@@ -22,7 +22,7 @@ class Admin::ArticlesController < Admin::AdminController
   end
 
   def create
-    @article = current_user.articles.build(article_params)
+    @article = current_user.authored_articles.build(article_params)
 
     if @article.save
       redirect_to admin_article_path(@article)
@@ -59,5 +59,5 @@ class Admin::ArticlesController < Admin::AdminController
   def article_params
     params.require(:article).permit(:title, :text, :evidence, :visible, :date, :commentable, :tag, :user_id, :slug, :use_slug, { category_ids: [] }, :current_user, :summary, :image, :remove_image)
   end
-    
+
 end

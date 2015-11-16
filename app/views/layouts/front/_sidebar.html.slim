@@ -17,9 +17,9 @@ aside#sidebar.sidebar_class.sidebar.sidebar-primary
 
   section.articles.widget
     .widget-wrap
-      h4 Recent Articles
-      - if @articles.any?
-        - @articles.limit(4).each do |article|
+      h4 Featured Articles
+      - if @evidence_articles.any?
+        - @evidence_articles.limit(4).each do |article|
           li
             = link_to article.title, article_path(article)
 

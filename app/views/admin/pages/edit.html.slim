@@ -1,39 +1,47 @@
 h1 Editing admin_page
 
 = form_for @page, url: admin_page_path(@page) do |f|
-  - if @page.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@page.errors.count, "error")} prohibited this admin_page from being saved:"
-      ul
-        - @page.errors.full_messages.each do |message|
-          li = message
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          - if @page.errors.any?
+            #error_explanation
+              h2 = "#{pluralize(@page.errors.count, "error")} prohibited this admin_article from being saved:"
+              ul
+                - @page.errors.full_messages.each do |message|
+                  li = message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :text
-    = f.text_area :text, :class => "tinymce", :rows => 20, :cols => 100
-  .field
-    = f.label :visible
-    = f.check_box :visible
-  .field
-    = f.label :position
-    = f.number_field :position
-  .field
-    = f.label :use_slug
-    = f.check_box :use_slug
-  .field
-    = f.label :image
-    = f.file_field :image
-  .field
-    - if @page.image?
-      = image_tag @page.image.url(:thumb)
-      = f.check_box :remove_image
-      = f.label :remove_image
-  .actions = f.submit
+          h6 = :title
+          .input-field
+            = f.text_field :title, placeholder:"Your page's title"
+            /= f.label :title, style:'margin: 0px'
 
+      .card
+        .card-content
+          / = f.label :text
+          = f.text_area :text, :class => "tinymce"
 
-= link_to 'Show', admin_page_path(@page)
-'|
-= link_to 'Back',  admin_pages_path
+    .col.s12.m3
+      .card
+        .card-content
+          h6 Image
+          = f.file_field :image
+          br
+          = f.check_box :remove_image, value: true, class:'filled-in'
+          = f.label :remove_image
+
+      .card
+        .card-content
+          h6 Order
+          p
+            = f.label :position
+            /= f.text_field :position
+
+      .card
+        .card-content
+          h6 Regenerate Slug
+          = f.check_box :use_slug, class:'filled-in'
+          = f.label :use_slug
+
+      = f.button "Publish page", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"

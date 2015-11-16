@@ -4,12 +4,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :articles
+  has_many :authored_articles, foreign_key: "author_id", class_name: "Article"
   has_many :enclosures
   has_many :links
   has_many :pages
   has_many :comments
   belongs_to :role
+
+  if Rails.env.development?
+    before_save :skip_confirmation
+  end
 
   ############ VISUALIZZA NOME UTENTE CHE HA COMMENTATO ##########
   def display_name
@@ -25,4 +29,7 @@ class User < ActiveRecord::Base
     self.role ||= Role.find_by_name("admin")
   end
 
+  def skip_confirmation
+    skip_confirmation!
+  end
 end

@@ -13,7 +13,7 @@
               ul
                 - @page.errors.full_messages.each do |message|
                   li = message
-          
+
           h6 = :title
           .input-field
             = f.text_field :title, placeholder:"Your page's title"
@@ -27,11 +27,16 @@
     .col.s12.m3
       .card
         .card-content
+          h6 Image
+          = f.file_field :image
+
+      .card
+        .card-content
           h6 Order
           p
             = f.label :position
             /= f.text_field :position
-     
+
       .card
         .card-content
           h6 Regenerate Slug
