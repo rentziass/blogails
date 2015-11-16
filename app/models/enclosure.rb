@@ -9,5 +9,4 @@ class Enclosure < ActiveRecord::Base
 
   # Validate the attached file is image/jpg, image/png, pdf
   validates_attachment_content_type :file, :content_type => ["image/jpeg","image/png","application/pdf"]
-
 end
