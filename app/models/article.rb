@@ -14,24 +14,20 @@ class Article < ActiveRecord::Base
     thumb: "200x200>",
     medium: "500x500#",
     large: "1000x1000>"
-  }, :path => "blogails/:class/:attachment/:id/:style/:filename.:extension", :url => ":s3_domain_url"
+  }, path: "blogails/:class/:attachment/:id/:style/:filename.:extension", url: ":s3_domain_url"
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  # TODO: This should all be scopes
-  ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
-  def self.available
+  scope :available, -> {
     where("date <= ?", Time.now)
-  end
-  ########### ARTICOLI VISIBILI SOLO SE L"ATTRIBUTO "Visible" E" VERO
-  def self.article_visible
-    where("visible = ?", true)
-  end
-  ########### ARTICOLI VISIBILI NELL"ELENCO DEL MENU" SOLO SE L"ATTRIBUTO "Evidence" E" VERO
-  def self.display_evidence
-    where("evidence = ?", true)
-  end
+  }
+  scope :visible, -> {
+    where(visible: true)
+  }
+  scope :in_evidence, -> {
+    where(evidence: true)
+  }
 
   ########### Slug change on update ################
   attr_writer :use_slug
