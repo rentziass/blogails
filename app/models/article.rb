@@ -1,12 +1,14 @@
 class Article < ActiveRecord::Base
   searchkick autocomplete: ["title"]
   extend FriendlyId
+  include Sluggable
 
   has_many :article_categories
   has_many :categories, through: :article_categories
   has_many :comments, dependent: :destroy
-  # TODO: questo e l'autore? Se sì ti consiglio di chiamare la relazione author altrimenti tra un po" è un casino
-  belongs_to :user
+  belongs_to :author, class_name: "User"
+
+  validates :title, presence: true
 
   friendly_id :title, use: [:slugged, :finders]
 
@@ -28,17 +30,6 @@ class Article < ActiveRecord::Base
   scope :in_evidence, -> {
     where(evidence: true)
   }
-
-  ########### Slug change on update ################
-  attr_writer :use_slug
-
-  def use_slug
-    @use_slug || true
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || title_changed? if use_slug == "1"
-  end
 
   ################ REMOVE IMAGE #############
   attr_writer :remove_image

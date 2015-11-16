@@ -1,6 +1,8 @@
 class Page < ActiveRecord::Base
   searchkick autocomplete: ["title"]
   extend FriendlyId
+  include Sluggable
+
   belongs_to :user
   friendly_id :title, use: [:slugged, :finders]
 
@@ -18,18 +20,6 @@ class Page < ActiveRecord::Base
   # TODO this has to be a scope
   def self.page_visible
     where("visible = ?", true)
-  end
-
-  ########### Slug change on update ################
-  attr_writer :use_slug
-
-  def use_slug
-    @use_slug || true
-  end
-
-  # TODO What"s this for?
-  def should_generate_new_friendly_id?
-    slug.blank? || title_changed? if use_slug == "1"
   end
 
 ################ REMOVE IMAGE #############

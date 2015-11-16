@@ -10,19 +10,16 @@ RSpec.describe Article, type: :model do
     it { is_expected.to respond_to :date }
     it { is_expected.to respond_to :commentable }
     it { is_expected.to respond_to :tag }
-    it { is_expected.to respond_to :user_id }
+    it { is_expected.to respond_to :author_id }
     it { is_expected.to respond_to :summary }
-    it { is_expected.to respond_to :name }
     it { is_expected.to respond_to :image }
-    it { is_expected.to respond_to :draft }
 
     it { is_expected.to have_many :categories }
     it { is_expected.to have_many :comments }
-    it { is_expected.to belong_to :user }
+    it { is_expected.to belong_to :author }
   end
 
   context "validation" do
-    # TODO: cosa si valida?
     context "factories" do
       it "should have a valid factory" do
         expect(FactoryGirl.build :article).to be_valid
