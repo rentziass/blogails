@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Article, type: :model do
   include_examples "a slugged item"
-  context 'attributes' do
+  context "attributes" do
     it { is_expected.to respond_to :title }
     it { is_expected.to respond_to :text }
     it { is_expected.to respond_to :evidence }
@@ -21,10 +21,10 @@ RSpec.describe Article, type: :model do
     it { is_expected.to belong_to :user }
   end
 
-  context 'validation' do
-    # TODO cosa si valida?
-    context 'factories' do
-      it 'should have a valid factory' do
+  context "validation" do
+    # TODO: cosa si valida?
+    context "factories" do
+      it "should have a valid factory" do
         expect(FactoryGirl.build :article).to be_valid
       end
     end

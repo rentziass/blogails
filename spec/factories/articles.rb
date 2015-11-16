@@ -4,16 +4,15 @@ FactoryGirl.define do
     text { Faker::Lorem.paragraph }
     evidence false
     visible true
-    # TODO date sta per?
+    # TODO: date sta per?
     date { Faker::Time.forward(2, :morning) }
     commentable true
-    # TODO qui facciamo lo stesso che nell'altro progetto?
+    # TODO: qui facciamo lo stesso che nell'altro progetto?
     tag { Faker::Name.title }
     summary { Faker::Lorem.paragraph }
-    # TODO per me: cos'è?
+    # TODO: per me: cos'e?
     name { Faker::Name.title }
-    # TODO per me: cos'è?
-    draft { Faker::Number.between(1,10) }
+    # TODO: per me: cos'e?
+    draft { Faker::Number.between(1, 10) }
   end
-
 end

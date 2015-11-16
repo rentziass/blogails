@@ -5,5 +5,4 @@ FactoryGirl.define do
     visible true
     position { Faker::Number.between(1, 10) }
   end
-
 end

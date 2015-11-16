@@ -5,9 +5,9 @@ class Category < ActiveRecord::Base
   validates_presence_of :title, :description
 
   has_attached_file :image, styles: {
-    thumb: '200x200>',
-    medium: '500x500#',
-    large: '1000x1000>'
+    thumb: "200x200>",
+    medium: "500x500#",
+    large: "1000x1000>"
   }, :path => "blogails/:class/:attachment/:id/:style/:filename.:extension", :url => ":s3_domain_url"
 
   # Validate the attached image is image/jpg, image/png, etc
@@ -20,6 +20,6 @@ class Category < ActiveRecord::Base
     @remove_image || false
   end
 
-  before_validation { self.image.clear if self.remove_image == '1'}
+  before_validation { self.image.clear if self.remove_image == "1"}
 
 end
