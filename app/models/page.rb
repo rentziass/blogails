@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
 
   validates :title, :text, presence: true
 
-  scope :visible, -> {
+  scope :visible, lambda {
     where(visible: true)
   }
 end

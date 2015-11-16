@@ -14,13 +14,13 @@ class Article < ActiveRecord::Base
 
   friendly_id :title, use: [:slugged, :finders]
 
-  scope :available, -> {
+  scope :available, lambda {
     where("date <= ?", Time.now)
   }
-  scope :visible, -> {
+  scope :visible, lambda {
     where(visible: true)
   }
-  scope :in_evidence, -> {
+  scope :in_evidence, lambda {
     where(evidence: true)
   }
 

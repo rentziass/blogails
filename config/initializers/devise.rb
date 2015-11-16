@@ -1,8 +1,7 @@
 Devise.setup do |config|
   config.secret_key = 'f6a0fe85f9ac9f004a0d7e32a2e19a42b45668eb4f1ab76081405e7825cb11b0975237fb785991bda5b61752f19272de12bb66b01b1e8ad19f64c2c312a5103c'
 
-  # TODO: customize this
-  config.mailer_sender = "sender@mail.com"
+  config.mailer_sender = "info@blogails.com"
 
   require 'devise/orm/active_record'
 
