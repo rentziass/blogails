@@ -1,6 +1,7 @@
 module Admin
   def self.table_name_prefix
-    'admin_'
+    # TODO: ?
+    "admin_"
   end
 
 end
