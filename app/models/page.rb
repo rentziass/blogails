@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
   belongs_to :user
   friendly_id :title, use: [:slugged, :finders]
 
+  validates :title, :text, presence: true
+
   has_attached_file :image, styles: {
     thumb: '200x200>',
     medium: '500x500#',
@@ -13,6 +15,7 @@ class Page < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  # TODO this has to be a scope
   def self.page_visible
     where('visible = ?', true)
   end
@@ -24,6 +27,7 @@ class Page < ActiveRecord::Base
     @use_slug || true
   end
 
+  # TODO What's this for?
   def should_generate_new_friendly_id?
     slug.blank? || title_changed? if use_slug == '1'
   end

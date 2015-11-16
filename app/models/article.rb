@@ -5,6 +5,7 @@ class Article < ActiveRecord::Base
   has_many :article_categories
   has_many :categories, through: :article_categories
   has_many :comments, dependent: :destroy
+  # TODO questo è l'autore? Se sì ti consiglio di chiamare la relazione author altrimenti tra un po' è un casino
   belongs_to :user
 
   friendly_id :title, use: [:slugged, :finders]
@@ -18,6 +19,7 @@ class Article < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  # TODO This should all be scopes
 ########### ARTICOLI VISIBILI SOLO CON ORARIO E DATA MINORE/UGUALE
   def self.available
     where('date <= ?', Time.now)
