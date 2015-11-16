@@ -17,10 +17,9 @@ class Page < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  # TODO this has to be a scope
-  def self.page_visible
-    where("visible = ?", true)
-  end
+  scope :visible, -> {
+    where(visible: true)
+  }
 
 ################ REMOVE IMAGE #############
   attr_writer :remove_image

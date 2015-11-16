@@ -31,6 +31,10 @@ class Article < ActiveRecord::Base
     where(evidence: true)
   }
 
+  default_value_for :date do
+    Time.now
+  end
+
   ################ REMOVE IMAGE #############
   attr_writer :remove_image
 

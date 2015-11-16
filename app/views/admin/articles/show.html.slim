@@ -1,19 +1,14 @@
 p#notice = notice
 
 p
-  strong User:
-  br
-  = @article.user_id
-  
-p
   strong Name:
   br
-  = @article.user.first_name
-  
+  = @article.author.first_name
+
 p
   strong Title:
   = simple_format @article.title
-  
+
 p
   strong Summary:
   = simple_format @article.summary
@@ -21,37 +16,37 @@ p
 p
   strong Text:
   = simple_format @article.text
-  
+
 p
   strong Evidence:
   = simple_format "true" if @article.evidence == true
-  
+
 p
   strong Visible:
   = simple_format "true" if @article.visible == true
-  
+
 p
   strong Commentable:
   = simple_format "true" if @article.commentable == true
-  
+
 p
   strong Date:
   = simple_format @article.date.strftime("giorno: %d-%m-%Y | ora: %H:%M")
-  
+
 p
   strong Categories:
   - @article.categories.each do |category|
     = simple_format category.title
   end
-  
-p 
+
+p
   strong Tags:
   br
   ul
     - @article.tag.split(%r{,\s*}).map(&:strip).each do |at|
       li
         = at
-  
+
 p
   strong Image:
   br

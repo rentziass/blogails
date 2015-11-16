@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_many :comments
   belongs_to :role
 
+  if Rails.env.development?
+    before_save :skip_confirmation
+  end
+
   ############ VISUALIZZA NOME UTENTE CHE HA COMMENTATO ##########
   def display_name
     "#{first_name} #{last_name.first}."
@@ -25,4 +29,7 @@ class User < ActiveRecord::Base
     self.role ||= Role.find_by_name("admin")
   end
 
+  def skip_confirmation
+    skip_confirmation!
+  end
 end
