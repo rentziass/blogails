@@ -20,4 +20,9 @@
             /= f.label :description
 
     .col.s12.m3
+      .card
+        .card-content
+          h6 Image
+          = f.file_field :image
+
       = f.button "Add Category", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
