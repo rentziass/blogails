@@ -14,21 +14,20 @@
                 - @article.errors.full_messages.each do |message|
                   li = message
 
-          h6 = :title
+          h6
+            = f.label :title
           .input-field
             = f.text_field :title, placeholder:"Your article's title"
-            /= f.label :title, style:'margin: 0px'
 
       .card
         .card-content
-          h6 = :summary
+          h6
+            = f.label :summary
           .input-field
             = f.text_area :summary, class:'materialize-textarea', placeholder:"Your article's summary"
-            /= f.label :summary
 
       .card
         .card-content
-          / = f.label :text
           = f.text_area :text, :class => "tinymce"
 
     .col.s12.m3

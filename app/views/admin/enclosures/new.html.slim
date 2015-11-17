@@ -7,14 +7,16 @@
     .col.s12.m9
       .card
         .card-content
-          h6 = :title
+          h6
+            = f.label :title
           .input-field
             = f.text_field :title, placeholder:"Your attachment's title"
             /= f.label :title, style:'margin: 0px'
 
       .card
         .card-content
-          h6 = :description
+          h6
+            = f.label :description
           .input-field
             = f.text_area :description, class:'materialize-textarea', placeholder:"Your attachment's description"
             /= f.label :description

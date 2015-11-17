@@ -244,29 +244,127 @@ it:
         one: "Articolo"
         other: "Articoli"
 
-      cup:
-        one: "Coppa"
-        other: "Coppe"
+      page:
+        one: "Pagina"
+        other: "Pagine"
 
-      cup_prize:
-        one: "Premio"
-        other: "Premi"
+      link:
+        one: "Link"
+        other: "Link"
 
-      assigned_prize:
-        one: "Premio assegnato"
-        other: "Premi assegnati"
+      article_category:
+        one: "Categoria Articoli"
+        other: "Categorie Articoli"
 
-      range_prize:
-        one: "Premio in range"
-        other: "Premi in range"
+      comment:
+        one: "Commento"
+        other: "Commenti"
+
+      user:
+        one: "Utente"
+        other: "Utenti"
+
+      user_list:
+        one: "Lista Utenti"
+        other: "Liste Utenti"
+
+      role:
+        one: "Ruolo"
+        other: "Ruoli"
+
+      option:
+        one: "Opzioni"
+        other: "Opzioni"
+
+      category:
+        one: "Categoria"
+        other: "Categorie"
+
+      enclosure:
+        one: "Allegato"
+        other: "Allegati"
+
+      article_image:
+        one: "Immagine Articoli"
+        other: "Immagini Articoli"
 
     attributes:
 
-      player:
-        first_name: "Nome"
-        last_name: "Cognome"
-        role: "Ruolo"
-        value: "Valore"
-        birth_date: "Data di nascita"
+      article:
+        title: "Titolo"
+        text: "Testo"
+        evidence: "In Evidenza"
+        visible: "Visibile"
+        date: "Data di pubblicazione"
+        commentable: "Commentabile"
+        tag: "Tag"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        slug: "Slug"
+        summary: "Sommario"
+        image: "Immagine"
+        author_id: "Autore"
+
+      page:
+        title: "Titolo"
+        text: "Testo"
+        visible: "Visibile"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        slug: "Slug"
+        image: "Immagine"
+        user_id: "Autore"
+
+      link:
+        title: "Titolo"
+        description: "Descrizione"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        link: "URL"
+        user_id: "Autore"
+
+      article_category:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        article_id: "Articolo"
+        category_id: "Categoria"
+
+      comment:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        article_id: "Articolo"
+        category_id: "Categoria"
+        body: "Testo"
+        user_id: "Autore"
+        user_name: "Username"
+
+      role:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        name: "Nome"
+
+      option:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        subtitle: "Sottotitolo"
+        footer: "Footer"
+        analitics: "Analytics"
+        copyright: "Copyright"
+        number_per_page: "Elementi per pagina"
+
+      category:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        description: "Descrizione"
+        image: "Immagine"
+
+      enclosure:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        description: "Descrizione"
+        file: "File"
 
   admin:

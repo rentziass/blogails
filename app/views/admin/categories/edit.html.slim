@@ -8,6 +8,7 @@
       .card
         .card-content
           h6 = :title
+            = f.label :title
           .input-field
             = f.text_field :title, placeholder:"Your category's title"
             /= f.label :title, style:'margin: 0px'
@@ -15,6 +16,7 @@
       .card
         .card-content
           h6 = :description
+            = f.label :description
           .input-field
             = f.text_area :description, class:'materialize-textarea', placeholder:"Your article's description"
             /= f.label :description

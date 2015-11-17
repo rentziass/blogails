@@ -14,7 +14,8 @@
                 - @page.errors.full_messages.each do |message|
                   li = message
 
-          h6 = :title
+          h6
+            = f.label :title
           .input-field
             = f.text_field :title, placeholder:"Your page's title"
             /= f.label :title, style:'margin: 0px'
@@ -32,10 +33,14 @@
 
       .card
         .card-content
+          = f.check_box :visible, class:'filled-in'
+          = f.label :visible
+
+      .card
+        .card-content
           h6 Order
           p
-            = f.label :position
-            /= f.text_field :position
+            = f.number_field :position, placeholder:"Your page's order"
 
       .card
         .card-content
@@ -44,10 +49,3 @@
           = f.label :use_slug
 
       = f.button "Publish page", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"
-
-
-/ h1 New admin_page
-
-/ == render 'form'
-
-/ = link_to 'Back',  admin_pages_path
