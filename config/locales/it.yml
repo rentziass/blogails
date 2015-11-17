@@ -308,6 +308,7 @@ it:
         author_id: "Autore"
 
       page:
+        use_slug: "Rigenera slug"
         title: "Titolo"
         text: "Testo"
         visible: "Visibile"
@@ -429,7 +430,7 @@ it:
 
     categories:
       new:
-        new_category: "Nuovo Categoria"
+        new_category: "Nuova Categoria"
         title_holder: "Il titolo della tua categoria"
         description_holder: "La descrizione della tua categoria"
         image: "Immagine"
@@ -439,6 +440,28 @@ it:
         new_link: "Nuova categoria"
         title: "Titolo"
         description: "Descrizione"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_category: "Modifica Categoria"
+        title_holder: "Il titolo della tua categoria"
+        description_holder: "La descrizione della tua categoria"
+        image: "Immagine"
+        update: "Aggiorna categoria"
+
+    pages:
+      new:
+        new_page: "Nuova Pagina"
+        title_holder: "Il titolo della tua pagina"
+        image: "Immagine"
+        order: "Ordine"
+        order_holder: "La posizione della tua pagina"
+        publish: "Pubblica pagina"
+      index:
+        page_title: "Tutte le pagine"
+        new_link: "Nuova pagina"
+        title: "Titolo"
+        order: "Ordine"
         actions: "Azioni"
         sure: "Sei sicuro?"
       edit:
