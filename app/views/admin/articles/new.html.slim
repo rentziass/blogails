@@ -1,6 +1,7 @@
 .row
   .col.s12
-    h3 New Article
+    h3
+      = t(".new_article")
 
 = form_for @article, url: admin_articles_path do |f|
   .row
@@ -17,14 +18,14 @@
           h6
             = f.label :title
           .input-field
-            = f.text_field :title, placeholder:"Your article's title"
+            = f.text_field :title, placeholder: t(".title_holder")
 
       .card
         .card-content
           h6
             = f.label :summary
           .input-field
-            = f.text_area :summary, class:'materialize-textarea', placeholder:"Your article's summary"
+            = f.text_area :summary, class:'materialize-textarea', placeholder: t(".summary_holder")
 
       .card
         .card-content
@@ -33,11 +34,13 @@
     .col.s12.m3
       .card
         .card-content
-          h6 Image
+          h6
+            = t(".image")
           = f.file_field :image
       .card
         .card-content
-          h6 Settings
+          h6
+            = t(".settings")
           table
             tr
               td
@@ -60,14 +63,15 @@
 
       .card
         .card-content
-          h6 Publish on Date
+          h6
+            = t(".publish_on_date")
           p
-            = f.label :date
             = f.datetime_field :date
 
       .card
         .card-content
-          h6 Categories
+          h6
+            = t(".categories")
           /= f.label :category
           = hidden_field_tag "article[category_ids][]", nil
           table
@@ -79,8 +83,7 @@
 
       .card
         .card-content
-          h6 Regenerate Slug
           = f.check_box :use_slug, class:'filled-in'
           = f.label :use_slug
 
-      = f.button "Publish Article", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"
+      = f.button t(".publish"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"

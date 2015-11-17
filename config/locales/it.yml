@@ -291,6 +291,7 @@ it:
     attributes:
 
       article:
+        use_slug: "Rigenera slug"
         title: "Titolo"
         text: "Testo"
         evidence: "In Evidenza"
@@ -367,4 +368,49 @@ it:
         description: "Descrizione"
         file: "File"
 
+
+  layouts:
+    admin:
+      sidebar:
+        articles:
+          title: "Articoli"
+          new: "Nuovo +"
+          all: "Tutti gli articoli"
+        categories:
+          title: "Categorie"
+          new: "Nuova +"
+          all: "Tutte le categorie"
+        pages:
+          title: "Pagine"
+          new: "Nuova +"
+          all: "Tutte le pagine"
+        attachments:
+          title: "Allegati"
+          new: "Nuovo +"
+          all: "Tutti gli allegati"
+        links:
+          title: "Link"
+          new: "Nuovo +"
+          all: "Tutti i link"
+        options: "Opzioni"
+
   admin:
+    articles:
+      new:
+        new_article: "Nuovo Articolo"
+        title_holder: "Il titolo del tuo articolo"
+        summary_holder: "Il titolo del tuo articolo"
+        image: "Immagine"
+        settings: "Impostazioni"
+        publish_on_date: "Data di pubblicazione"
+        categories: "Categorie"
+        use_slug: "Rigenera slug"
+        publish: "Pubblica articolo"
+      index:
+        page_title: "Tutti gli articoli"
+        new_link: "Nuovo articolo"
+        title: "Titolo"
+        categories: "Categorie"
+        date: "Data di pubblicazione"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
