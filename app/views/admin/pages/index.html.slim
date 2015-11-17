@@ -1,7 +1,8 @@
 .row
   .col.s12
-    h3 All Pages
-    = link_to 'New Page', new_admin_page_path, class:"btn  light-blue darken-4 waves-effect waves-light"
+    h3
+      = t(".page_title")
+    = link_to t(".new_link"), new_admin_page_path, class:"btn  light-blue darken-4 waves-effect waves-light"
 
 .row
   .col.s12
@@ -9,14 +10,16 @@
       thead
         tr
           th.id_cell ID
-          th Title
-          th Order
-          th Slug
-          th.actions_cell Actions
+          th
+            = t(".title")
+          th
+            = t(".order")
+          th.actions_cell
+            = t(".actions")
 
       tbody
         - @pages.each do |page|
-          tr 
+          tr
             td.id_cell = page.id
             td = page.title
             td = page.position
@@ -26,6 +29,5 @@
                 i.material-icons open_in_new
               a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_page_path(page)
                 i.material-icons mode_edit
-              a.btn-floating.waves-effect.waves-light.pink href=admin_page_path(page) onclick='return confirm("Are you sure?")' method="delete"
+              = link_to admin_page_path(page), method: :delete, class: "a btn-floating waves-effect waves-light pink", data: { confirm: t(".sure") }
                 i.material-icons delete
-              
