@@ -291,6 +291,7 @@ it:
     attributes:
 
       article:
+        remove_image: "Rimuovi immagine"
         use_slug: "Rigenera slug"
         title: "Titolo"
         text: "Testo"
@@ -355,6 +356,7 @@ it:
         number_per_page: "Elementi per pagina"
 
       category:
+        remove_image: "Rimuovi immagine"
         created_at: "Creato il"
         updated_at: "Ultima modifica"
         title: "Titolo"
@@ -414,3 +416,34 @@ it:
         date: "Data di pubblicazione"
         actions: "Azioni"
         sure: "Sei sicuro?"
+      edit:
+        edit_article: "Modifica Articolo"
+        title_holder: "Il titolo del tuo articolo"
+        summary_holder: "Il sommario del tuo articolo"
+        image: "Immagine"
+        settings: "Impostazioni"
+        publish_on_date: "Data di pubblicazione"
+        categories: "Categorie"
+        use_slug: "Rigenera slug"
+        publish: "Pubblica articolo"
+
+    categories:
+      new:
+        new_category: "Nuovo Categoria"
+        title_holder: "Il titolo della tua categoria"
+        description_holder: "La descrizione della tua categoria"
+        image: "Immagine"
+        create: "Crea categoria"
+      index:
+        page_title: "Tutte le categorie"
+        new_link: "Nuova categoria"
+        title: "Titolo"
+        description: "Descrizione"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_category: "Modifica Categoria"
+        title_holder: "Il titolo della tua categoria"
+        description_holder: "La descrizione della tua categoria"
+        image: "Immagine"
+        update: "Aggiorna categoria"

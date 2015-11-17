@@ -1,6 +1,7 @@
 .row
   .col.s12
-    h3 New Category
+    h3
+      = t(".new_category")
 
 = form_for @category, url: admin_categories_path do |f|
   .row
@@ -10,7 +11,7 @@
           h6
             = f.label :title
           .input-field
-            = f.text_field :title, placeholder:"Your category's title"
+            = f.text_field :title, placeholder: t(".title_holder")
             /= f.label :title, style:'margin: 0px'
 
       .card
@@ -18,13 +19,14 @@
           h6
             = f.label :description
           .input-field
-            = f.text_area :description, class:'materialize-textarea', placeholder:"Your article's description"
+            = f.text_area :description, class: 'materialize-textarea', placeholder: t(".description_holder")
             /= f.label :description
 
     .col.s12.m3
       .card
         .card-content
-          h6 Image
+          h6
+            = t(".image")
           = f.file_field :image
 
-      = f.button "Add Category", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
+      = f.button t(".create"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"

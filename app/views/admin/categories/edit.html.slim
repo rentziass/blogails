@@ -1,33 +1,35 @@
 .row
   .col.s12
-    h3 Edit Category
+    h3
+      = t(".edit_category")
 
 = form_for @category, url: admin_category_path(@category) do |f|
   .row
     .col.s12.m9
       .card
         .card-content
-          h6 = :title
+          h6
             = f.label :title
           .input-field
-            = f.text_field :title, placeholder:"Your category's title"
+            = f.text_field :title, placeholder: t(".title_holder")
             /= f.label :title, style:'margin: 0px'
 
       .card
         .card-content
-          h6 = :description
+          h6
             = f.label :description
           .input-field
-            = f.text_area :description, class:'materialize-textarea', placeholder:"Your article's description"
+            = f.text_area :description, class: 'materialize-textarea', placeholder: t(".description_holder")
             /= f.label :description
 
     .col.s12.m3
       .card
         .card-content
-          h6 Image
+          h6
+            = t(".image")
           = f.file_field :image
           br
           = f.check_box :remove_image, value: true, class:'filled-in'
           = f.label :remove_image
 
-      = f.button "Add Category", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
+      = f.button t(".update"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
