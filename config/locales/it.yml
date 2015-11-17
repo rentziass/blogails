@@ -472,3 +472,19 @@ it:
         order: "Ordine"
         order_holder: "La posizione della tua pagina"
         publish: "Pubblica pagina"
+
+    enclosures:
+      new:
+        new_attachment: "Nuovo Allegato"
+        title_holder: "Il titolo del tuo allegatoo"
+        description_holder: "La descrizione del tuo allegato"
+        create: "Crea allegato"
+      index:
+        page_title: "Tutti gli allegati"
+        new_link: "Nuovo allegato"
+        sure: "Sei sicuro?"
+      edit:
+        edit_attachment: "Modifica Allegato"
+        title_holder: "Il titolo del tuo allegatoo"
+        description_holder: "La descrizione del tuo allegato"
+        update: "Aggiorna allegato"

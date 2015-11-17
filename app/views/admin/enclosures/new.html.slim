@@ -1,6 +1,7 @@
 .row
   .col.s12
-    h3 New Attachment
+    h3
+      = t(".new_attachment")
 
 = form_for @enclosure, url: admin_enclosures_path do |f|
   .row
@@ -10,7 +11,7 @@
           h6
             = f.label :title
           .input-field
-            = f.text_field :title, placeholder:"Your attachment's title"
+            = f.text_field :title, placeholder: t(".title_holder")
             /= f.label :title, style:'margin: 0px'
 
       .card
@@ -18,7 +19,7 @@
           h6
             = f.label :description
           .input-field
-            = f.text_area :description, class:'materialize-textarea', placeholder:"Your attachment's description"
+            = f.text_area :description, class:'materialize-textarea', placeholder: t(".description_holder")
             /= f.label :description
 
     .col.s12.m3
@@ -27,4 +28,4 @@
           h6 File
           = f.file_field :file
 
-      = f.button "Add Attachment", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
+      = f.button t(".create"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"

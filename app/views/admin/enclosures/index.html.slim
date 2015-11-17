@@ -1,7 +1,8 @@
 .row
   .col.s12
-    h3 All Attachments
-    = link_to 'New Attachment', new_admin_enclosure_path, class:"btn light-blue darken-4 waves-effect waves-light"
+    h3
+      = t(".page_title")
+    = link_to t(".new_link"), new_admin_enclosure_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
 .row.attachments_list
   - @enclosures.each do |enclosure|
@@ -19,5 +20,5 @@
               i.material-icons open_in_new
             a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_enclosure_path(enclosure)
               i.material-icons mode_edit
-            a.btn-floating.waves-effect.waves-light.pink href=admin_enclosure_path(enclosure) onclick='return confirm("Are you sure?")' method="delete"
-              i.material-icons delete
+              = link_to admin_enclosure_path(enclosure), method: :delete, class: "a btn-floating waves-effect waves-light pink", data: { confirm: t(".sure") }
+                i.material-icons delete
