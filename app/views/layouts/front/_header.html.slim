@@ -9,6 +9,7 @@ header#header.site-header
   .wrap
     .title-area
       h1.site-title
-        a href="#" Blogails
+        = link_to @site_options.title, root_path
       h3.site-description
-        span Blogging like a Train
+        span
+          = @site_options.subtitle

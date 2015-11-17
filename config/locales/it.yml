@@ -244,29 +244,284 @@ it:
         one: "Articolo"
         other: "Articoli"
 
-      cup:
-        one: "Coppa"
-        other: "Coppe"
+      page:
+        one: "Pagina"
+        other: "Pagine"
 
-      cup_prize:
-        one: "Premio"
-        other: "Premi"
+      link:
+        one: "Link"
+        other: "Link"
 
-      assigned_prize:
-        one: "Premio assegnato"
-        other: "Premi assegnati"
+      article_category:
+        one: "Categoria Articoli"
+        other: "Categorie Articoli"
 
-      range_prize:
-        one: "Premio in range"
-        other: "Premi in range"
+      comment:
+        one: "Commento"
+        other: "Commenti"
+
+      user:
+        one: "Utente"
+        other: "Utenti"
+
+      user_list:
+        one: "Lista Utenti"
+        other: "Liste Utenti"
+
+      role:
+        one: "Ruolo"
+        other: "Ruoli"
+
+      option:
+        one: "Opzioni"
+        other: "Opzioni"
+
+      category:
+        one: "Categoria"
+        other: "Categorie"
+
+      enclosure:
+        one: "Allegato"
+        other: "Allegati"
+
+      article_image:
+        one: "Immagine Articoli"
+        other: "Immagini Articoli"
 
     attributes:
 
-      player:
-        first_name: "Nome"
-        last_name: "Cognome"
-        role: "Ruolo"
-        value: "Valore"
-        birth_date: "Data di nascita"
+      article:
+        remove_image: "Rimuovi immagine"
+        use_slug: "Rigenera slug"
+        title: "Titolo"
+        text: "Testo"
+        evidence: "In Evidenza"
+        visible: "Visibile"
+        date: "Data di pubblicazione"
+        commentable: "Commentabile"
+        tag: "Tag"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        slug: "Slug"
+        summary: "Sommario"
+        image: "Immagine"
+        author_id: "Autore"
+
+      page:
+        remove_image: "Rimuovi immagine"
+        use_slug: "Rigenera slug"
+        title: "Titolo"
+        text: "Testo"
+        visible: "Visibile"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        slug: "Slug"
+        image: "Immagine"
+        user_id: "Autore"
+
+      link:
+        title: "Titolo"
+        description: "Descrizione"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        link: "URL"
+        user_id: "Autore"
+
+      article_category:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        article_id: "Articolo"
+        category_id: "Categoria"
+
+      comment:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        article_id: "Articolo"
+        category_id: "Categoria"
+        body: "Testo"
+        user_id: "Autore"
+        user_name: "Username"
+
+      role:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        name: "Nome"
+
+      option:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        subtitle: "Sottotitolo"
+        footer: "Footer"
+        analitics: "Analytics"
+        copyright: "Copyright"
+        number_per_page: "Elementi per pagina"
+
+      category:
+        remove_image: "Rimuovi immagine"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        description: "Descrizione"
+        image: "Immagine"
+
+      enclosure:
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        description: "Descrizione"
+        file: "File"
+
+
+  layouts:
+    admin:
+      sidebar:
+        articles:
+          title: "Articoli"
+          new: "Nuovo +"
+          all: "Tutti gli articoli"
+        categories:
+          title: "Categorie"
+          new: "Nuova +"
+          all: "Tutte le categorie"
+        pages:
+          title: "Pagine"
+          new: "Nuova +"
+          all: "Tutte le pagine"
+        attachments:
+          title: "Allegati"
+          new: "Nuovo +"
+          all: "Tutti gli allegati"
+        links:
+          title: "Link"
+          new: "Nuovo +"
+          all: "Tutti i link"
+        options: "Opzioni"
 
   admin:
+    articles:
+      new:
+        new_article: "Nuovo Articolo"
+        title_holder: "Il titolo del tuo articolo"
+        summary_holder: "Il titolo del tuo articolo"
+        image: "Immagine"
+        settings: "Impostazioni"
+        publish_on_date: "Data di pubblicazione"
+        categories: "Categorie"
+        use_slug: "Rigenera slug"
+        publish: "Pubblica articolo"
+      index:
+        page_title: "Tutti gli articoli"
+        new_link: "Nuovo articolo"
+        title: "Titolo"
+        categories: "Categorie"
+        date: "Data di pubblicazione"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_article: "Modifica Articolo"
+        title_holder: "Il titolo del tuo articolo"
+        summary_holder: "Il sommario del tuo articolo"
+        image: "Immagine"
+        settings: "Impostazioni"
+        publish_on_date: "Data di pubblicazione"
+        categories: "Categorie"
+        use_slug: "Rigenera slug"
+        publish: "Pubblica articolo"
+
+    categories:
+      new:
+        new_category: "Nuova Categoria"
+        title_holder: "Il titolo della tua categoria"
+        description_holder: "La descrizione della tua categoria"
+        image: "Immagine"
+        create: "Crea categoria"
+      index:
+        page_title: "Tutte le categorie"
+        new_link: "Nuova categoria"
+        title: "Titolo"
+        description: "Descrizione"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_category: "Modifica Categoria"
+        title_holder: "Il titolo della tua categoria"
+        description_holder: "La descrizione della tua categoria"
+        image: "Immagine"
+        update: "Aggiorna categoria"
+
+    pages:
+      new:
+        new_page: "Nuova Pagina"
+        title_holder: "Il titolo della tua pagina"
+        image: "Immagine"
+        order: "Ordine"
+        order_holder: "La posizione della tua pagina"
+        publish: "Pubblica pagina"
+      index:
+        page_title: "Tutte le pagine"
+        new_link: "Nuova pagina"
+        title: "Titolo"
+        order: "Ordine"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_page: "Modifica Pagina"
+        title_holder: "Il titolo della tua pagina"
+        image: "Immagine"
+        order: "Ordine"
+        order_holder: "La posizione della tua pagina"
+        publish: "Pubblica pagina"
+
+    enclosures:
+      new:
+        new_attachment: "Nuovo Allegato"
+        title_holder: "Il titolo del tuo allegato"
+        description_holder: "La descrizione del tuo allegato"
+        create: "Crea allegato"
+      index:
+        page_title: "Tutti gli allegati"
+        new_link: "Nuovo allegato"
+        sure: "Sei sicuro?"
+      edit:
+        edit_attachment: "Modifica Allegato"
+        title_holder: "Il titolo del tuo allegato"
+        description_holder: "La descrizione del tuo allegato"
+        update: "Aggiorna allegato"
+
+    links:
+      new:
+        new_link: "Nuovo Link"
+        title_holder: "Il titolo del tuo link"
+        description_holder: "La descrizione del tuo link"
+        url_holder: "L'URL del tuo link"
+        create: "Crea link"
+      index:
+        page_title: "Tutti i link"
+        new_link: "Nuovo link"
+        title: "Titolo"
+        description: "Descrizione"
+        url: "URL"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_link: "Modifica Link"
+        title_holder: "Il titolo del tuo link"
+        description_holder: "La descrizione del tuo link"
+        url_holder: "L'URL del tuo link"
+        update: "Aggiorna link"
+
+    options:
+      index:
+        page_title: "Opzioni"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        subtitle: "Sottotitolo"
+        footer: "Footer"
+        analitics: "Analytics"
+        copyright: "Copyright"
+        number_per_page: "Elementi per pagina"
+        key: "Voce"
+        value: "Valore"
+        actions: "Azioni"

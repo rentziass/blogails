@@ -2,7 +2,7 @@ class Admin::OptionsController < Admin::AdminController
   before_action :set_admin_option, only: [:show, :edit, :update]
 
   def index
-    @options = Option.all
+    @options = Option.first
   end
 
   def show
@@ -28,5 +28,5 @@ class Admin::OptionsController < Admin::AdminController
   def option_params
     params.require(:option).permit(:title, :subtitle, :footer, :analitics, :copyright, :number_per_page)
   end
-    
+
 end

@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
     def get_defaults_for_layout
       @evidence_articles = Article.available.visible.in_evidence.order(date: :desc).limit(4)
       @categories = Category.order(:title)
-      @pages = Page.visible.order(:title)
+      @pages = Page.visible.order(position: :asc).order(:title)
       @links = Link.all
+      @site_options = Option.first
     end
 
 end

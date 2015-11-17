@@ -1,7 +1,8 @@
 .row
   .col.s12
-    h3 All Categories
-    = link_to 'New Category', new_admin_category_path, class:"btn light-blue darken-4 waves-effect waves-light"
+    h3
+      = t(".page_title")
+    = link_to t(".new_link"), new_admin_category_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
 .row
   .col.s12
@@ -9,13 +10,16 @@
       thead
         tr
           th.id_cell ID
-          th Title
-          th Description
-          th.actions_cell Actions
+          th
+            = t(".title")
+          th
+            = t(".description")
+          th.actions_cell
+            = t(".actions")
 
       tbody
         - @categories.each do |category|
-          tr 
+          tr
             td.id_cell = category.id
             td = category.title
             td = category.description
@@ -24,5 +28,5 @@
                 i.material-icons open_in_new
               a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_category_path(category)
                 i.material-icons mode_edit
-              a.btn-floating.waves-effect.waves-light.pink href=admin_category_path(category) onclick='return confirm("Are you sure?")' method="delete"
+              = link_to admin_category_path(category), method: :delete, class: "a btn-floating waves-effect waves-light pink", data: { confirm: t(".sure") }
                 i.material-icons delete

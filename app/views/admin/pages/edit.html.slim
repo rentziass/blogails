@@ -1,4 +1,7 @@
-h1 Editing admin_page
+.row
+  .col.s12
+    h3
+      = t(".edit_page")
 
 = form_for @page, url: admin_page_path(@page) do |f|
   .row
@@ -12,20 +15,20 @@ h1 Editing admin_page
                 - @page.errors.full_messages.each do |message|
                   li = message
 
-          h6 = :title
+          h6
+            = f.label :title
           .input-field
-            = f.text_field :title, placeholder:"Your page's title"
-            /= f.label :title, style:'margin: 0px'
+            = f.text_field :title, placeholder: t(".title_holder")
 
       .card
         .card-content
-          / = f.label :text
           = f.text_area :text, :class => "tinymce"
 
     .col.s12.m3
       .card
         .card-content
-          h6 Image
+          h6
+            = t(".image")
           = f.file_field :image
           br
           = f.check_box :remove_image, value: true, class:'filled-in'
@@ -33,15 +36,19 @@ h1 Editing admin_page
 
       .card
         .card-content
-          h6 Order
-          p
-            = f.label :position
-            /= f.text_field :position
+          = f.check_box :visible, class:'filled-in'
+          = f.label :visible
 
       .card
         .card-content
-          h6 Regenerate Slug
+          h6
+            = t(".order")
+          p
+            = f.number_field :position, placeholder: t(".order_holder")
+
+      .card
+        .card-content
           = f.check_box :use_slug, class:'filled-in'
           = f.label :use_slug
 
-      = f.button "Publish page", class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"
+      = f.button t(".publish"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 30px 0px"

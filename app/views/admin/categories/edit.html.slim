@@ -1,30 +1,35 @@
-h1 Editing admin_category
+.row
+  .col.s12
+    h3
+      = t(".edit_category")
 
 = form_for @category, url: admin_category_path(@category) do |f|
-  - if @category.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@category.errors.count, "error")} prohibited this admin_category from being saved:"
-      ul
-        - @category.errors.full_messages.each do |message|
-          li = message
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          h6
+            = f.label :title
+          .input-field
+            = f.text_field :title, placeholder: t(".title_holder")
+            /= f.label :title, style:'margin: 0px'
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :image
-    = f.file_field :image
-  .field
-    - if @category.image?
-      = image_tag @category.image.url(:thumb)
-      = f.check_box :remove_image
-      = f.label :remove_image
-  .actions = f.submit
+      .card
+        .card-content
+          h6
+            = f.label :description
+          .input-field
+            = f.text_area :description, class: 'materialize-textarea', placeholder: t(".description_holder")
+            /= f.label :description
 
+    .col.s12.m3
+      .card
+        .card-content
+          h6
+            = t(".image")
+          = f.file_field :image
+          br
+          = f.check_box :remove_image, value: true, class:'filled-in'
+          = f.label :remove_image
 
-= link_to 'Show', admin_category_path(@category)
-'|
-= link_to 'Back', admin_categories_path
+      = f.button t(".update"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"

@@ -12,6 +12,6 @@ module HasStandardImage
                       url: ":s3_domain_url"
 
     # Validate the attached image is image/jpg, image/png, etc
-    validates_attachment_content_type :image, content_type: %r{ \Aimage\/.*\Z }
+    validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\Z}
   end
 end

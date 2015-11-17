@@ -1,51 +1,27 @@
-h1 Listing admin_option
+h1
+  = t(".page_title")
 
-table
-  thead
-  - @options.each do |option|
-    tr
-      th Title
-      td = option.title
-    tr
-      th SubTitle
-      td = option.subtitle
-    tr
-      th Footer
-      td = option.footer
-    tr
-      th Copyright
-      td = option.copyright
-    tr
-      th Analitics
-      td = option.analitics
-    tr
-      th Number per page
-      td = option.number_per_page
-    tr
-      - if current_user.role.name == 'admin'
-        td = link_to 'Edit', edit_admin_option_path(option)
-      end
-      
-table
-  tbody
-    
-br
-p
-  strong You are logged as:
-  br
-  = current_user.email
+.row
+  .col.s12
+    table.bordered.highlight.responsive-table.categories_list
+      thead
+        tr
+          th
+            = t(".key")
+          th
+            = t(".value")
+          th.actions_cell
+            = t(".actions")
 
-= link_to 'Home', admin_root_path
-br
-br
-= link_to 'Articoli', admin_articles_path
-br
-=link_to 'Allegati', admin_enclosures_path
-br
-= link_to 'Categorie', admin_categories_path
-br
-= link_to 'Utenti', admin_user_lists_path
-br
-= link_to 'Link', admin_links_path
-br
-= link_to 'Pagine', admin_pages_path
+      tbody
+        td
+        td
+        td.actions_cell
+          a.btn-floating.waves-effect.waves-light.light-blue.darken-4 href=edit_admin_option_path(@options)
+            i.material-icons mode_edit
+        - @options.view_attributes.each do |key, value|
+          tr
+            td
+              = t(".#{key}")
+            td
+              = value

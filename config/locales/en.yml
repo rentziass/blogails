@@ -1,23 +1,330 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  number:
+    format:
+      delimiter: "."
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: true
+      separator: ","
+
+    currency:
+      format:
+        format: "%u %n"
+        unit: "€"
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+        # precision:
+
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+
+    human:
+      format:
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Mila"
+          million: "Milioni"
+          billion: "Miliardi"
+          trillion: "Bilioni"
+          quadrillion: "Biliardi"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names:
+      - domenica
+      - lunedì
+      - martedì
+      - mercoledì
+      - giovedì
+      - venerdì
+      - sabato
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mer
+      - gio
+      - ven
+      - sab
+
+    month_names:
+      - ~
+      - gennaio
+      - febbraio
+      - marzo
+      - aprile
+      - maggio
+      - giugno
+      - luglio
+      - agosto
+      - settembre
+      - ottobre
+      - novembre
+      - dicembre
+    abbr_month_names:
+      - ~
+      - gen
+      - feb
+      - mar
+      - apr
+      - mag
+      - giu
+      - lug
+      - ago
+      - set
+      - ott
+      - nov
+      - dic
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+      input: "%d-%m-%Y"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one:  "1 secondo"
+        other: "%{count} secondi"
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "%{count} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre %{count} anni"
+      almost_x_years:
+        one:   "circa 1 anno"
+        other: "circa %{count} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+    select:
+      prompt: "Per favore, seleziona"
+
+  helpers:
+    select:
+      prompt: "Per favore, seleziona"
+
+    submit:
+      create: 'Crea %{model}'
+      update: 'Aggiorna %{model}'
+      submit: 'Invia %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "non è incluso nella lista"
+      exclusion: "è riservato"
+      invalid: "non è valido"
+      confirmation: "non coincide con la conferma"
+      accepted: "deve essere accettata"
+      empty: "non può essere vuoto"
+      blank: "non può essere lasciato in bianco"
+      too_long:
+        one: "è troppo lungo (il massimo è 1 carattere)"
+        other: "è troppo lungo (il massimo è %{count} caratteri)"
+      too_short:
+        one:  "è troppo corto (il minimo è 1 carattere)"
+        other:  "è troppo corto (il minimo è %{count} caratteri)"
+      wrong_length:
+        one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
+        other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
+      not_a_number: "non è un numero"
+      not_an_integer: "non è un intero"
+      greater_than: "deve essere superiore a %{count}"
+      greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
+      equal_to: "deve essere uguale a %{count}"
+      less_than: "deve essere meno di %{count}"
+      less_than_or_equal_to: "deve essere meno o uguale a %{count}"
+      odd: "deve essere dispari"
+      even: "deve essere pari"
+      altezza: "deve essere maggiore di zero"
+
+      generic: "Si è verificato un errore nell'elaborazione della richiesta"
+      password_change_needed: "Per motivi di sicurezza è necessario cambiare password prima di accedere all'area riservata del sito"
+      paypal:
+        connection: "Si è verificato un errore durante la connessione a PayPal. Si prega di riprovare."
+        cancelled: "L'acquisto è stato cancellato da PayPal. Si prega di riprovare."
+
+    page_not_found:
+      title: "Ops, pagina non trovata!"
+      body_html: "<p>La pagina che stavi cercando non esiste oppure è stata spostata</p><p>La preghiamo di contattare il Servizio Clienti in caso di necessità</p>"
+
+  activerecord:
+
+
+    models:
+
+      user:
+        one: "Page"
+        other: "Utenti"
+
+    attributes:
+
+      product:
+        name: "Nome"
+        description: "Descrizione"
+        reference: "Ref."
+        city: "Città"
+        price: "Prezzo"
+        advance_price: "Anticipo"
+        product_highlighted: "In evidenza"
+        created_at: "Creato"
+        updated_at: "Ultima modifica"
+        hidden_price: "Prezzo nascosto"
+        product_category: "Categoria"
+        product_zone: "Zona"
+
+      product_category:
+        name: "Nome"
+        description: "Descrizione"
+        created_at: "Creata"
+        updated_at: "Ultima modifica"
+
+      product_service:
+        name: "Nome"
+        description: "Descrizione"
+        created_at: "Creata"
+        updated_at: "Ultima modifica"
+
+      product_zone:
+        name: "Nome"
+        description: "Descrizione"
+        created_at: "Creata"
+        updated_at: "Ultima modifica"
+
+      post:
+        title: "Titolo"
+        content: "Contenuto"
+        hidden: "Nascosta"
+        created_at: "Creata"
+        updated_at: "Ultima modifica"
+
+  shared:
+    header:
+      menu:
+        boards: "Products"
+        gallery: "Gallery"
+        about: "About"
+        contact: "Contact"
+
+    footer:
+      ultime_notizie: "<span class='footer-title-span'>Ultime</span> notizie"
+      orari_title: "<span class='footer-title-span'>Nostri</span> orari"
+      orari_body: "Lun-Ven: 8.30-13 14.30-18"
+      mappa_title: "<span class='footer-title-span'>Mappa</span> sito"
+
+  home:
+    index:
+      boards: "Products"
+      view_product: "View product"
+      about_title: "About Woodman Longboards"
+      keywords:
+        fatte_a_mano: "handcrafted boards"
+      contacts: "Contacts"
+      woodman: "Woodman Longboards"
+      address: "Via Partigiani d'Italia, 2"
+      city: "13898, Occhieppo Superiore BI"
+      country: "Italy"
+      phone: "+39 340 1510425"
+      email: "info@woodmanlongboards.com"
+      p_iva: "Woodman Longboards S.n.c. - P.IVA 02553360021"
+    gallery:
+      slideshow_tutorial: "Naviga con le frecce"
+
+  carts:
+    show:
+      empty_cart: "Your cart is empty at the moment."
+      back_to_shopping: "Continue shopping!"
+    checkout:
+      customer_notes: "Insert here your preferences such as the color of the board."
+      buy: "Buy"
+
+  boards:
+    show:
+      keywords:
+          fatte_a_mano: "handcrafted boards"
+    progress_bars:
+      cruising_value: "Cruising"
+      dancing_value: "Dancing"
+      downhill_value: "Downhill"
+      street_value: "Street"
+      pool_value: "Pool"
+    order_form:
+      customer_notes: "Insert here your preferences such as the color of the board."
+      buy: "Add to cart"
+      your_data: "Inserisci i tuoi dati"
+      cancel: "Annulla"
