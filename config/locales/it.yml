@@ -476,7 +476,7 @@ it:
     enclosures:
       new:
         new_attachment: "Nuovo Allegato"
-        title_holder: "Il titolo del tuo allegatoo"
+        title_holder: "Il titolo del tuo allegato"
         description_holder: "La descrizione del tuo allegato"
         create: "Crea allegato"
       index:
@@ -485,6 +485,43 @@ it:
         sure: "Sei sicuro?"
       edit:
         edit_attachment: "Modifica Allegato"
-        title_holder: "Il titolo del tuo allegatoo"
+        title_holder: "Il titolo del tuo allegato"
         description_holder: "La descrizione del tuo allegato"
         update: "Aggiorna allegato"
+
+    links:
+      new:
+        new_link: "Nuovo Link"
+        title_holder: "Il titolo del tuo link"
+        description_holder: "La descrizione del tuo link"
+        url_holder: "L'URL del tuo link"
+        create: "Crea link"
+      index:
+        page_title: "Tutti i link"
+        new_link: "Nuovo link"
+        title: "Titolo"
+        description: "Descrizione"
+        url: "URL"
+        actions: "Azioni"
+        sure: "Sei sicuro?"
+      edit:
+        edit_link: "Modifica Link"
+        title_holder: "Il titolo del tuo link"
+        description_holder: "La descrizione del tuo link"
+        url_holder: "L'URL del tuo link"
+        update: "Aggiorna link"
+
+    options:
+      index:
+        page_title: "Opzioni"
+        created_at: "Creato il"
+        updated_at: "Ultima modifica"
+        title: "Titolo"
+        subtitle: "Sottotitolo"
+        footer: "Footer"
+        analitics: "Analytics"
+        copyright: "Copyright"
+        number_per_page: "Elementi per pagina"
+        key: "Voce"
+        value: "Valore"
+        actions: "Azioni"

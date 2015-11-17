@@ -1,7 +1,8 @@
 .row
   .col.s12
-    h3 All Links
-    = link_to 'New Link', new_admin_link_path, class:"btn light-blue darken-4 waves-effect waves-light"
+    h3
+      = t(".page_title")
+    = link_to t(".new_link"), new_admin_link_path, class:"btn light-blue darken-4 waves-effect waves-light"
 
 .row
   .col.s12
@@ -9,14 +10,18 @@
       thead
         tr
           th.id_cell ID
-          th Title
-          th Description
-          th URL
-          th.actions_cell Actions
+          th
+            = t(".title")
+          th
+            = t(".description")
+          th
+            = t(".url")
+          th.actions_cell
+            = t(".actions")
 
       tbody
         - @links.each do |link|
-          tr 
+          tr
             td.id_cell = link.id
             td = link.title
             td = link.description

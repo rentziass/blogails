@@ -1,25 +1,34 @@
-h1 Editing admin_link
+.row
+  .col.s12
+    h3
+      = t(".edit_link")
 
 = form_for @link, url: admin_link_path(@link) do |f|
-  - if @link.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@link.errors.count, "error")} prohibited this admin_link from being saved:"
-      ul
-        - @link.errors.full_messages.each do |message|
-          li = message
+  .row
+    .col.s12.m9
+      .card
+        .card-content
+          h6
+            = f.label :title
+          .input-field
+            = f.text_field :title, placeholder: t(".title_holder")
+            /= f.label :title, style:'margin: 0px'
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :link
-    = f.text_field :link
-  .actions = f.submit
+      .card
+        .card-content
+          h6
+            = f.label :description
+          .input-field
+            = f.text_area :description, class:'materialize-textarea', placeholder: t(".description_holder")
+            /= f.label :description
 
+      .card
+        .card-content
+          h6
+            = f.label :link
+          .input-field
+            = f.text_field :link, placeholder: t(".url_holder")
+            /= f.label :title, style:'margin: 0px'
 
-= link_to 'Show', admin_link_path(@link)
-'|
-= link_to 'Back',  admin_links_path
+    .col.s12.m3
+      = f.button t(".update"), class:"btn light-blue darken-4 waves-effect waves-light", style: "width: 100%; margin: 0px"
