@@ -25,7 +25,7 @@ class Admin::PagesController < Admin::AdminController
     @page = current_user.pages.build(page_params)
 
     if @page.save
-      redirect_to admin_page_path(@page)
+      redirect_to admin_pages_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::PagesController < Admin::AdminController
 
   def update
     if @page.update(page_params)
-      redirect_to admin_page_path(@page)
+      redirect_to admin_pages_path
     else
       render :edit
     end

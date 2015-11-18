@@ -19,7 +19,7 @@ class Admin::EnclosuresController < Admin::AdminController
     @enclosure = current_user.enclosures.build(enclosure_params)
 
     if @enclosure.save
-      redirect_to admin_enclosure_path(@enclosure)
+      redirect_to admin_enclosures_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::EnclosuresController < Admin::AdminController
 
   def update
     if @enclosure.update(enclosure_params)
-      redirect_to admin_enclosure_path(@enclosure)
+      redirect_to admin_enclosures_path
     else
       render :edit
     end

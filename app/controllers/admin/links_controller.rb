@@ -19,7 +19,7 @@ class Admin::LinksController < Admin::AdminController
     @link = current_user.links.build(link_params)
 
     if @link.save
-      redirect_to admin_link_path(@link)
+      redirect_to admin_links_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::LinksController < Admin::AdminController
 
   def update
     if @link.update(link_params)
-      redirect_to admin_link_path(@link)
+      redirect_to admin_links_path
     else
       render :edit
     end

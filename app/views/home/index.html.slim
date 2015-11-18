@@ -4,12 +4,17 @@
       header.entry-header
         h2.entry-title
           = link_to article.title, article_path(article)
+
         .entry-meta
           time.entry-time
-            = article.created_at.strftime("%B %d, %Y at %H:%M")
+            = article.date.strftime("%B %d, %Y at %H:%M")
           span.entry-author
             |  by 
             | author
+
+        - if article.image
+          a href=article_path(article)
+            img.large.wp-post-image src="#{article.image.url}"
 
       .entry-summary
         = article.summary

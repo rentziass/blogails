@@ -36,10 +36,20 @@
         .card-content
           h6
             = t(".image")
-          = f.file_field :image
-          br
+          - if @article.image
+            img style="width: 100%;" src=@article.image.url
+          .file-field.input-field
+            .btn
+              span File
+              = f.file_field :image
+            .file-path-wrapper
+              input.file-path.validate type="text"
+          
           = f.check_box :remove_image, value: true, class:'filled-in'
           = f.label :remove_image
+
+          p style="color: #666; font-size: 11px; margin-top: 15px;" Le modifiche sono visibili al termine del caricamento
+
       .card
         .card-content
           h6
@@ -64,12 +74,12 @@
             = f.text_field :tag
             = f.label :tag
 
-      .card
-        .card-content
-          h6
-            = t(".publish_on_date")
-          p
-            = f.datetime_field :date
+      / .card
+      /   .card-content
+      /     h6
+      /       = t(".publish_on_date")
+      /     p
+      /       = f.datetime_field :date
 
       .card
         .card-content

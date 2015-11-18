@@ -1,13 +1,39 @@
-h1 = @category.title
-.text
-  p
-    = @category.description
-    br
-    br
-    - @category.articles.each do |article|
-      = link_to article.title, article_path(article)
-      br
-    end
-    = image_tag @category.image.url(:thumb) if @category.image.present?
+header.page-header
+  h1.archive-title = @category.title
+  .taxonomy-description
+    p = @category.description
+- @category.articles.each do |article|
+  article.entry.post.format-standard
+    .entry-wrap
+      header.entry-header
+        h2.entry-title
+          = link_to article.title, article_path(article)
 
-= link_to 'Home', home_index_path
+        .entry-meta
+          time.entry-time
+            = article.date.strftime("%B %d, %Y at %H:%M")
+          span.entry-author
+            |  by 
+            | author
+
+        - if article.image
+          a href=article_path(article)
+            img.large.wp-post-image src="#{article.image.url}"
+
+      .entry-summary
+        = article.summary
+
+      footer.entry-footer
+        .entry-meta
+          - if article.categories.any?
+            span.entry-terms.category
+              | Posted in: 
+              - article.categories.each_with_index do |category, index|
+                = link_to category.title, category_path(category)
+                - unless index == article.categories.size - 1
+                  | , 
+
+          - if article.tag != ''
+            span.entry-terms.post_tag
+              | Tagged: 
+              = article.tag

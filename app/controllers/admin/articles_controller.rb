@@ -25,7 +25,7 @@ class Admin::ArticlesController < Admin::AdminController
     @article = current_user.authored_articles.build(article_params)
 
     if @article.save
-      redirect_to admin_article_path(@article)
+      redirect_to admin_articles_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::ArticlesController < Admin::AdminController
 
   def update
     if @article.update(article_params)
-      redirect_to admin_article_path(@article)
+      redirect_to admin_articles_path
     else
       render :edit
     end

@@ -1,42 +1,44 @@
-h1 = @article.title
-.text
-  p
-    b Name:
-    br
-    = @article.author.display_name
-    br
-    br
-    b Summary:
-    br
-    = @article.summary
-    br
-    br
-    b Text:
-    br
-    = @article.text.html_safe
-    b Categories:
-    br
-    - @article.categories.each do |category|
-      = link_to  category.title, category_path(category)
-      br
-    end
-    br
-    b Image:
-    br
-    = image_tag @article.image.url(:thumb)
+article.entry.post.format-standard
+  .entry-wrap
+    header.entry-header
+      h2.entry-title = @article.title
 
-h2 Comments
-p
-  = render :partial => @article.comments.order(created_at: :asc)
+      .entry-meta
+        time.entry-time
+          = @article.date.strftime("%B %d, %Y at %H:%M")
+        span.entry-author
+          |  by 
+          | author
 
-- if @article.commentable == true
-  = form_for [@article, Comment.new] do |f|
-    = f.label :body, "New comment:"
-    br
-    = f.text_area :body
-    br
-    = f.submit "Post comment"
-  end
-end
+      - if @article.image
+        img.large.wp-post-image src="#{@article.image.url}"
 
-= link_to 'Home', home_index_path
+    .entry-summary
+      = @article.text.html_safe
+
+    footer.entry-footer
+      .entry-meta
+        - if @article.categories.any?
+          span.entry-terms.category
+            | Posted in: 
+            - @article.categories.each_with_index do |category, index|
+              = link_to category.title, category_path(category)
+              - unless index == @article.categories.size - 1
+                | , 
+
+        - if @article.tag != ''
+          span.entry-terms.post_tag
+            | Tagged: 
+            = @article.tag
+
+/ h2 Comments
+/ p
+/   = render :partial => @article.comments.order(created_at: :asc)
+
+/ - if @article.commentable == true
+/   = form_for [@article, Comment.new] do |f|
+/     = f.label :body, "New comment:"
+/     br
+/     = f.text_area :body
+/     br
+/     = f.submit "Post comment"

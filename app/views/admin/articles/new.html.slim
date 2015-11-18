@@ -36,7 +36,13 @@
         .card-content
           h6
             = t(".image")
-          = f.file_field :image
+          .file-field.input-field
+            .btn
+              span File
+              = f.file_field :image
+            .file-path-wrapper
+              input.file-path.validate type="text"
+
       .card
         .card-content
           h6
@@ -61,12 +67,12 @@
             = f.text_field :tag
             = f.label :tag
 
-      .card
-        .card-content
-          h6
-            = t(".publish_on_date")
-          p
-            = f.datetime_field :date
+      / .card
+      /   .card-content
+      /     h6
+      /       = t(".publish_on_date")
+      /     p
+      /       = f.datetime_field :date
 
       .card
         .card-content

@@ -13,7 +13,7 @@ class Admin::OptionsController < Admin::AdminController
 
   def update
     if @option.update(option_params)
-      redirect_to admin_options_path(@option)
+      redirect_to admin_options_path
     else
       render :edit
     end

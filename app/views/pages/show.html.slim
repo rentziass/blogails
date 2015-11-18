@@ -1,9 +1,10 @@
-h1 = @page.title
-.text
-  p
-    = @page.text.html_safe
-    br
-    br
-    = image_tag @page.image.url(:thumb)
+article.entry.post.format-standard
+  .entry-wrap
+    header.entry-header
+      h2.entry-title = @page.title
 
-= link_to 'Home', home_index_path
+      - if @page.image
+        img.large.wp-post-image src="#{@page.image.url}"
+
+    .entry-summary
+      = @page.text.html_safe
