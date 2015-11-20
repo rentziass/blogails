@@ -25,7 +25,7 @@
             td.id_cell = link.id
             td = link.title
             td = link.description
-            td = link.link
+            td = link.link.sub('http://') { |match|  }
             td.actions_cell
               a.btn-floating.waves-effect.waves-light.light-blue href=link.link target="_blank"
                 i.material-icons open_in_new
