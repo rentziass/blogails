@@ -398,6 +398,13 @@ it:
           all: "Tutti i link"
         options: "Opzioni"
 
+    front:
+      sidebar:
+        articles: "Articoli in Evidenza"
+        categories: "Categorie"
+        pages: "Pagine"
+        links: "Link Utili"
+
   admin:
     articles:
       new:
@@ -525,3 +532,7 @@ it:
         key: "Voce"
         value: "Valore"
         actions: "Azioni"
+
+  home:
+    index:
+      from_author: "da"
