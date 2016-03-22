@@ -1,7 +1,7 @@
 aside#sidebar.sidebar_class.sidebar.sidebar-primary
   section.pages.widget
     .widget-wrap
-      h4 Pages
+      h4 = t(".pages")
       - if @pages.any?
         - @pages.each do |page|
           li
@@ -9,7 +9,7 @@ aside#sidebar.sidebar_class.sidebar.sidebar-primary
 
   section.categories.widget
     .widget-wrap
-      h4 Categories
+      h4 = t(".categories")
       - if @categories.any?
         - @categories.each do |category|
           li
@@ -17,16 +17,16 @@ aside#sidebar.sidebar_class.sidebar.sidebar-primary
 
   section.articles.widget
     .widget-wrap
-      h4 Featured Articles
+      h4 = t(".articles")
       - if @evidence_articles.any?
         - @evidence_articles.limit(4).each do |article|
           li
             = link_to article.title, article_path(article)
-
-  section.links.widget
-    .widget-wrap
-      h4 Useful Links
-      - if @links.any?
+  
+  - if @links.any?
+    section.links.widget
+      .widget-wrap
+        h4 = t(".links")
         - @links.limit(4).each do |link|
           li
             = link_to link.title, link.link, target:'_blank'

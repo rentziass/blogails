@@ -9,8 +9,8 @@
           time.entry-time
             = article.date.strftime("%B %d, %Y at %H:%M")
           span.entry-author
-            |  by 
-            | author
+            = " #{t('.from_author')} " 
+            = "#{article.author.display_name}"
 
         - if article.image
           a href=article_path(article)
